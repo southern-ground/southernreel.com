@@ -1,0 +1,34 @@
+$ochre: #F5C52C;
+$dark: #424242;
+
+$xl: 1200px;
+$desktop: 980px;
+$tabPort: 768px;
+$sm: 767px;
+$xs: 480px;
+
+@mixin media-xl(){
+  @media only screen and (min-width: $xl){
+    @content;
+  }
+}
+@mixin media-desktop(){
+  @media only screen and (min-width: $desktop){
+    @content;
+  }
+}
+@mixin media-tablet-portrait(){
+  @media only screen and (min-width: $tabPort){
+    @content;
+  }
+}
+@mixin media-small(){
+  @media only screen and (min-width: $sm){
+    @content;
+  }
+}
+@mixin media-mobile(){
+  @media only screen and (min-width: $xs){
+    @content;
+  }
+}

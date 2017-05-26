@@ -1,0 +1,11 @@
+{
+  "projects": [
+    {
+      "title": "Project Title",
+      "client": "Project Client",
+      "company": "Southern Ground",
+      "image": "img/samples/your-picture-here.jpg",
+      "projectDescription": "Some Description"
+    }
+  ]
+}

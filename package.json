@@ -1,0 +1,62 @@
+{
+  "name": "southernreel.com",
+  "version": "1.0.0",
+  "description": "A rebuild of the previous Southern Reel site.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist && mkdir ./dist && mkdir ./dist/js && mkdir ./dist/js/vendor && mkdir ./dist/css/ && mkdir ./dist/css/vendor && mkdir ./dist/css/vendor/icon-font && mkdir ./dist/img && mkdir ./dist/video",
+    "bootstrap": "cp ./node_modules/bootstrap/dist/css/bootstrap.min.css ./dist/css/vendor/",
+    "normalize": "cp ./node_modules/normalize.css/normalize.css ./dist/css/vendor/",
+    "underscore": "cp ./node_modules/underscore/underscore-min.js ./dist/js/vendor/",
+    "jquery": "cp ./node_modules/jquery/dist/jquery.min.js ./dist/js/vendor/",
+    "genericons": "cp ./node_modules/genericons/genericons/Genericons.css ./dist/css/vendor/ && cp ./node_modules/genericons/genericons/Genericons.eot ./dist/css/vendor/ && cp ./node_modules/genericons/genericons/Genericons.svg ./dist/css/vendor/ && cp ./node_modules/genericons/genericons/Genericons.ttf ./dist/css/ && cp ./node_modules/genericons/genericons/Genericons.woff ./dist/css/vendor/",
+    "downloadIcon": "cp ./node_modules/genericons-neue/svg-min/download.svg ./src/img/",
+    "externals": "npm run clean && npm run bootstrap && npm run normalize && npm run underscore && npm run jquery && npm run genericons && npm run downloadIcon",
+    "start": "npm run externals && gulp --env=dev",
+    "build": "npm run externals && gulp build",
+    "build:stage": "npm run externals && gulp build --env=stage",
+    "build:prod": "npm run externals && gulp build --env=prod"
+  },
+  "author": "ferris",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "genericons": "^1.0.1",
+    "genericons-neue": "^4.0.5",
+    "jquery": "^3.2.1",
+    "normalize.css": "^7.0.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-data": "^1.2.1",
+    "gulp-nunjucks-render": "^2.2.1",
+    "gulp-print": "^2.0.1",
+    "gulp-sass": "^3.1.0",
+    "run-sequence": "^1.2.2",
+    "yargs": "^8.0.1"
+  },
+  "config": {
+    "directories": {
+      "dist": "./dist",
+      "src": "./src"
+    },
+    "projects": "./src/data/projects.json",
+    "servers": {
+      "dev": {
+        "name": "dev",
+        "assetURL": "./"
+      },
+      "stage": {
+        "name": "stage",
+        "assetURL": "./"
+      },
+      "prod": {
+        "name": "prod",
+        "assetURL": "./"
+      }
+    }
+  }
+}
