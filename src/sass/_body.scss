@@ -1,18 +1,16 @@
 @import "_shared";
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 html {
   body {
-
+    font-family: 'Montserrat', sans-serif;
     height: 100%;
     width: 100%;
     overflow: auto;
     -webkit-overflow-scrolling:touch;
-
     background-color: black;
     color: white;
     padding: 0;
     margin: 0;
-
     div#content {
       position: relative;
       section{
@@ -49,7 +47,7 @@ html {
           }
         }
         &:last-of-type{
-          margin: 0 0 75px 0;
+          margin: 0 auto 75px auto;
         }
       }
       &.slide-show-active {

@@ -1,18 +1,132 @@
 @import "_shared";
 
 header {
-  display: block;
   position: fixed;
   top: 0;
-  border-bottom: 1px solid $ochre;
-  color: $dark;
   width: 100%;
-  margin: 0 0 20px 0;
-  padding: 20px 0 0;
-  text-align: center;
   z-index:10;
+  .viewControl{
+    width: 40px;
+    height: auto;
+    margin: 45px 0 0 50px;
+    cursor: pointer;
+  }
+  nav.headerNav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .headerHamburger{
 
-  nav {
+    }
+    .headerLogo{
+      height: 40px;
+      width: auto;
+      margin: 45px 50px 0 0;
+      fill: black;
+      cursor: pointer;
+    }
+  }
+  nav.headerMenu{
+    // opacity: 0;
+    height: 100vh;
+    background-color: white;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    .headerMenu__choices{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      & > li{
+        margin: 0 auto;
+        text-align: center;
+        &:not(:last-of-type){
+          margin: 0 0 60px 0;
+        }
+        a{
+          font-size: 26px;
+          text-transform: uppercase;
+          color: black;
+          text-decoration: none;
+          -webkit-transition: font-size 0.5s; /* Safari */
+          transition: font-size 0.5s;
+          &:hover{
+            font-size:28px;
+          }
+        }
+      }
+      .headerMenu__social{
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        li{
+          text-indent: -10000px;
+          &:not(:last-of-type){
+            margin: 0 20px 0 0;
+          }
+          a{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            -webkit-transition: border 0.75s; /* Safari */
+            transition: border 0.75s;
+            &:hover{
+              border: 2px solid #333333;
+            }
+            &.headerMenu__social--{
+              &facebook{
+                background: url(../img/social-facebook.svg);
+              }
+              &instagram{
+                background: url(../img/social-instagram.svg);
+              }
+              &vimeo{
+                background: url(../img/social-vimeo.svg);
+              }
+              &twitter{
+                background: url(../img/social-twitter.svg);
+              }
+            }
+          }
+        }
+      }
+    }
+    .headerMenu__controls{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .menuClose{
 
+      }
+      .headerLogo{
+        height: 40px;
+        width: auto;
+        margin: 45px 50px 0 0;
+        fill: black;
+        cursor: pointer;
+      }
+    }
   }
 }
