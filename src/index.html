@@ -74,11 +74,37 @@
 <!-- END FB SDK -->
 
 <header>
-    Header
+    <nav class="headerNav">
+        <img id="hamburger" src="img/hamburger.svg" class="headerHamburger viewControl"/>
+        <img src="img/sr-logo.svg" class="headerLogo"/>
+    </nav>
+    <nav id="headerMenu" class="headerMenu" style="display: none;">
+        <div class="headerMenu__controls">
+            <img id="menuClose" src="img/close-x.svg" class="menuClose viewControl"/>
+            <img src="img/sr-logo-black.svg" class="headerLogo"/>
+        </div>
+        <ul class="headerMenu__choices">
+            <li><a href="#Video" class="headerMenu__internalLink">Video</a></li>
+            <li><a href="#Photography" class="headerMenu__internalLink">Photography</a></li>
+            <li><a href="#Design" class="headerMenu__internalLink">Design</a></li>
+            <li><a href="#About" class="headerMenu__internalLink">About</a></li>
+            <li><a href="#OurTeam" class="headerMenu__internalLink">Our Team</a></li>
+            <li><a href="#Contact" class="headerMenu__internalLink">Contact</a></li>
+            <li>
+                <ul class="headerMenu__social">
+                    <li><a href="#" class="headerMenu__social--facebook">Facebook</a></li>
+                    <li><a href="#" class="headerMenu__social--instagram">Instagram</a></li>
+                    <li><a href="#" class="headerMenu__social--vimeo">Vimeo</a></li>
+                    <li><a href="#" class="headerMenu__social--twitter">Twitter</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
 </header>
 
 <div id="content" class="slide-show-wrapper slide-show-active">
-    <section class="slide-show-container">
+    <section id="Video" class="slide-show-container">
         <ul class="slide-show">
             <li class="slide" data-background="slide-01.jpg" data-index="0">
                 <h1>Slide One</h1>
@@ -116,28 +142,47 @@
             </li>
         </ul>
     </section>
-    <section>
+    <section id="Photography">
+        <h2>Photography</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+    </section>
+    <section id="Design">
+        <h2>Design</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+    </section>
+    <section id="About">
         <h2>About</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
     </section>
-    <section>
-        <h2>Video Bit</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section>
-    <section>
+    <section id="OurTeam">
         <h2>Our Team</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
     </section>
-    <section>
-        <h2>Everything We Do</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section>
-    <section>
+    <section id="Contact">
         <h2>Contact</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
     </section>
-    <section>
-        <div id="back-to-top" class="back-to-top hidden"></div>
+    <div id="back-to-top" class="back-to-top hidden"></div>
 </div>
 
 <footer>
