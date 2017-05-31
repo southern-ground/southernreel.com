@@ -2,17 +2,59 @@
 
 html {
   body {
+
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling:touch;
+
     background-color: black;
     color: white;
+    padding: 0;
+    margin: 0;
 
     div#content {
       position: relative;
-      section {
-        @include media-desktop {
-          background-color: transparent;
-          max-width: $desktop;
-          margin-left: auto;
-          margin-right: auto;
+      section{
+        &.slide-show-container{
+          width: 100vw;
+          height: 100vh;
+          ul.slide-show {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li {
+              width: 100vw;
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+              background-size: cover;
+              position: absolute;
+            }
+
+          }
+        }
+        &:not(.slide-show-container){
+          @include media-desktop {
+            background-color: transparent;
+            max-width: $desktop;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+        &:last-of-type{
+          margin: 0 0 75px 0;
+        }
+      }
+      &.slide-show-active {
+        position: fixed;
+        top: 0;
+        section:not(.slide-show-container){
+          position: absolute;
+          right: 0;
         }
       }
       div#back-to-top {

@@ -2,17 +2,15 @@
 
 header {
   display: block;
+  position: fixed;
+  top: 0;
   border-bottom: 1px solid $ochre;
   color: $dark;
   width: 100%;
   margin: 0 0 20px 0;
   padding: 20px 0 0;
   text-align: center;
-
-  @include media-desktop {
-    max-width: $desktop;
-    margin: 0 auto 20px auto
-  };
+  z-index:10;
 
   nav {
 
