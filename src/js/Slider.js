@@ -84,7 +84,6 @@ Slider.prototype = {
     checkScroll: function () {
         var currentIndex,
             $next,
-            _this = this,
             percentComplete = this.$active.css('opacity'),
             completeTransition = percentComplete < this.SCROLL_THRESHOLD;
 
@@ -99,42 +98,46 @@ Slider.prototype = {
             if (completeTransition) {
                 this.$active
                     .fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-                $next
-                    .fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
-                        _this.$active = $next;
-                        _this.hideInactive();
-                    });
+                (function (sliderInstance) {
+                    $next
+                        .fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
+                            sliderInstance.$active = $next;
+                            sliderInstance.hideInactive();
+                        });
+                })(this);
             } else {
-                $next
-                    .fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-                this.$active
-                    .fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
-                        $('li.slide').addClass('inactive');
-                        _this.$active.removeClass('inactive');
-                        _this.hideInactive();
-                    });
+                $next.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
+                (function (sliderInstance) {
+                    this.$active
+                        .fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
+                            $('li.slide').addClass('inactive');
+                            sliderInstance.$active.removeClass('inactive');
+                            sliderInstance.hideInactive();
+                        });
+                })(this);
             }
         } else if (this.scrollDirection === -1) {
             currentIndex = this.$active.data('index');
             $next = $('li.slide[data-index=' + (currentIndex + 1) + ']');
             // Scrolling Down
             if (completeTransition) {
-                this.$active
-                    .fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-                $next
-                    .fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
-                        _this.$active = $next;
-                        _this.hideInactive();
+                this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
+                (function (sliderInstance) {
+                    $next.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
+                        sliderInstance.$active = $next;
+                        sliderInstance.hideInactive();
                     });
+                })(this);
+
             } else {
-                $next
-                    .fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-                this.$active
-                    .fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
+                $next.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
+                (function (sliderInstance) {
+                    this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
                         $('li.slide').addClass('inactive');
-                        _this.$active.removeClass('inactive');
-                        _this.hideInactive();
+                        sliderInstance.$active.removeClass('inactive');
+                        sliderInstance.hideInactive();
                     });
+                })(this);
             }
         } else {
             console.warn('Null Transition');
@@ -169,7 +172,7 @@ Slider.prototype = {
                 if (nextIndex >= 0) {
                     this.busy = true;
                     this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-                    (function(sliderInstance){
+                    (function (sliderInstance) {
                         $next.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
                             sliderInstance.$active = $next;
                             sliderInstance.busy = false;
@@ -190,7 +193,7 @@ Slider.prototype = {
             if (nextIndex >= 0) {
                 this.busy = true;
                 this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-                (function(sliderInstance){
+                (function (sliderInstance) {
                     $next.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
                         sliderInstance.$active = $next;
                         sliderInstance.busy = false;
@@ -207,7 +210,7 @@ Slider.prototype = {
             this.busy = true;
             var $next = $('li.slide[data-index=' + 0 + ']');
             this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-            (function(sliderInstance){
+            (function (sliderInstance) {
                 $next.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
                     sliderInstance.$active = $next;
                     sliderInstance.hideInactive();
@@ -221,8 +224,8 @@ Slider.prototype = {
             this.busy = true;
             var $next = $('li.slide[data-index=' + this.lastSlide + ']');
             this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
-            (function(sliderInstance){
-                $next.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function(){
+            (function (sliderInstance) {
+                $next.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
                     sliderInstance.$active = $next;
                     sliderInstance.hideInactive();
                     sliderInstance.busy = false;
@@ -231,7 +234,7 @@ Slider.prototype = {
         }
     },
     scrollUp: function (e) {
-        if(this.busy) return;
+        if (this.busy) return;
         if (this.isAtTopOfPage()) {
             if (this.$sliderContainer.hasClass(this.SLIDE_SHOW_ACTIVE_CLASS)) {
                 var currentIndex = this.$active.data('index'),
@@ -270,7 +273,7 @@ Slider.prototype = {
         }
     },
     scrollDown: function (e) {
-        if(this.busy) return;
+        if (this.busy) return;
         var currentIndex = this.$active.data('index'),
             opacity = this.$active.css('opacity') - this.SCROLL_INCREMENT,
             $next = $('li.slide[data-index=' + (currentIndex + 1) + ']');
