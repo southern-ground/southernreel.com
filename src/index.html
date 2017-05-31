@@ -103,12 +103,17 @@
     </nav>
 </header>
 
+</div>
+
 <div id="content" class="slide-show-wrapper slide-show-active">
     <section id="Video" class="slide-show-container">
         <ul class="slide-show">
             <li class="slide" data-background="slide-01.jpg" data-index="0">
-                <h1>Slide One</h1>
-                <p>Lorem Ipsum</p>
+                <a href="#" data-url="https://player.vimeo.com/video/207580033"
+                   data-title="Sir Rosevelt Take Your Love Away">
+                <h3>Sir Rosevelt</h3>
+                <p>Take Your Love Away</p>
+                </a>
             </li>
             <li class="slide" data-background="slide-02.jpg" data-index="1">
                 <h1>Slide Two</h1>
@@ -190,6 +195,11 @@
         FOOTER
     </div>
 </footer>
+
+<div id="overlay" style="display:none;">
+    <a id="overlayClose" href="#" class="overlay__close">Close</a>
+    <div id="overlayContent"></div>
+</div>
 
 <script src="js/vendor/underscore-min.js"></script>
 <script src="js/vendor/jquery.min.js"></script>

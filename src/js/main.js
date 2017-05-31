@@ -53,7 +53,6 @@ $(document).ready(function () {
     com.slider.init();
 
     $('#headerMenu').slideUp();
-
     $('#hamburger').click(function () {
         if ($('#headerMenu').is(":hidden")) {
             $('#headerMenu').slideDown("slow");
@@ -61,11 +60,9 @@ $(document).ready(function () {
             $('#headerMenu').slideUp();
         }
     });
-
     $('#menuClose').click(function () {
         $('#headerMenu').slideUp();
     });
-
     $('.headerMenu__internalLink').click(function (e) {
         var sectionID = $(this).attr('href');
         sectionID === '#Video'
@@ -79,6 +76,33 @@ $(document).ready(function () {
         $('html, body').animate({
             scrollTop: $(sectionID).offset().top
         }, 2000);
+    });
+    $('#overlayClose').click(function (e) {
+        $('#overlay').fadeOut('fast', function () {
+            $(this).find('#overlayContent').empty();
+        });
+        e.preventDefault();
+        e.stopPropagation();
+        void(0);
+        return false;
+    });
+    $('.slide a').click(function (e) {
+        console.log("YES")
+        var url = $(this).data('url'),
+            title = $(this).data('title'),
+            w = 640, // (window.innerWidth * 0.8) | 0,
+            h = 360; // (w * (360/640)) | 0;
+
+        $('#overlayContent').empty();
+        $('#overlayContent').html(
+            '<iframe src="' + url + '" width="'+w+'" height="'+h+'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' +
+            '<p>' + title + '</p>'
+        );
+        $('#overlay').fadeIn('fast');
+        e.preventDefault();
+        e.stopPropagation();
+        void(0);
+        return false;
     });
 
 })();
