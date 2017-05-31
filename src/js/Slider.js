@@ -108,12 +108,11 @@ Slider.prototype = {
             } else {
                 $next.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
                 (function (sliderInstance) {
-                    this.$active
-                        .fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
-                            $('li.slide').addClass('inactive');
-                            sliderInstance.$active.removeClass('inactive');
-                            sliderInstance.hideInactive();
-                        });
+                    sliderInstance.$active.fadeTo(sliderInstance.SLIDE_ANIMATION_TIME, 1, function () {
+                        $('li.slide').addClass('inactive');
+                        sliderInstance.$active.removeClass('inactive');
+                        sliderInstance.hideInactive();
+                    });
                 })(this);
             }
         } else if (this.scrollDirection === -1) {
@@ -123,16 +122,15 @@ Slider.prototype = {
             if (completeTransition) {
                 this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
                 (function (sliderInstance) {
-                    $next.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
+                    $next.fadeTo(sliderInstance.SLIDE_ANIMATION_TIME, 1, function () {
                         sliderInstance.$active = $next;
                         sliderInstance.hideInactive();
                     });
                 })(this);
-
             } else {
                 $next.fadeTo(this.SLIDE_ANIMATION_TIME, 0);
                 (function (sliderInstance) {
-                    this.$active.fadeTo(this.SLIDE_ANIMATION_TIME, 1, function () {
+                    sliderInstance.$active.fadeTo(sliderInstance.SLIDE_ANIMATION_TIME, 1, function () {
                         $('li.slide').addClass('inactive');
                         sliderInstance.$active.removeClass('inactive');
                         sliderInstance.hideInactive();
