@@ -52,4 +52,33 @@ $(document).ready(function () {
     com.slider = new Slider();
     com.slider.init();
 
+    $('#headerMenu').slideUp();
+
+    $('#hamburger').click(function () {
+        if ($('#headerMenu').is(":hidden")) {
+            $('#headerMenu').slideDown("slow");
+        } else {
+            $('#headerMenu').slideUp();
+        }
+    });
+
+    $('#menuClose').click(function () {
+        $('#headerMenu').slideUp();
+    });
+
+    $('.headerMenu__internalLink').click(function (e) {
+        var sectionID = $(this).attr('href');
+        sectionID === '#Video'
+            ?
+            $('#content').addClass('slide-show-active')
+            :
+            $('#content').removeClass('slide-show-active');
+
+        $('#headerMenu').slideUp('fast');
+
+        $('html, body').animate({
+            scrollTop: $(sectionID).offset().top
+        }, 2000);
+    });
+
 })();
