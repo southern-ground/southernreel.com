@@ -33,6 +33,9 @@ html {
               align-content: center;
               background-size: cover;
               position: absolute;
+              &.inactive{
+                pointer-events: none;
+              }
             }
 
           }
