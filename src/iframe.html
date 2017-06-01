@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/main.css" />
+<body>
+<div id="slideShowWrapper">
+    <ul class="slide-show">
+        {% for project in projects %}
+        <li class="slide"
+            data-index="{{loop.index}}"
+            style="z-index:{{loop.revindex}};opacity={% if loop.index === 1 %}1{% else %}0{% endif %}">
+            <div class="slide__background" style="background-image:url(../img/slides/{{project.image}})"></div>
+            <div class="slide__copy" data-url="{{project.video}}" data-title="{{project.title}}">
+                <div class="slide__description">
+                    {% for copy in project.copy %}
+                    <p>{{copy}}</p>
+                    {% endfor %}
+                </div>
+                <span class="slide__watchNow">Watch Now</span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/slideshow.js"></script>
+</body>
+</html>

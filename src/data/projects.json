@@ -1,11 +1,22 @@
 {
   "projects": [
     {
-      "title": "Project Title",
-      "client": "Project Client",
-      "company": "Southern Ground",
-      "image": "img/samples/your-picture-here.jpg",
-      "projectDescription": "Some Description"
+      "title": "Sir Rosevelt Take Your Love Away",
+      "copy": ["Sir Rosevelt", "Take Your Love Away"],
+      "video": "https://player.vimeo.com/video/207580033",
+      "image": "slide-01.jpg"
+    },
+    {
+      "title": "Placeholder One",
+      "copy": ["Placeholder", "One"],
+      "video": "https://player.vimeo.com/video/207580033",
+      "image": "slide-02.jpg"
+    },
+    {
+      "title": "Placeholder Two",
+      "copy": ["Placeholder", "Two"],
+      "video": "https://player.vimeo.com/video/207580033",
+      "image": "slide-03.jpg"
     }
   ]
 }
