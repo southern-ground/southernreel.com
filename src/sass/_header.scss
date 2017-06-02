@@ -3,14 +3,10 @@
 header {
   position: fixed;
   top: 0;
+  left: 0;
+  height: 60px;
   width: 100%;
   z-index:10;
-  .viewControl{
-    width: 40px;
-    height: auto;
-    margin: 45px 0 0 50px;
-    cursor: pointer;
-  }
   nav.headerNav{
     position: absolute;
     top: 0;
@@ -20,14 +16,39 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    path{
+      -webkit-transition: fill 2s; /* Safari */
+      transition: fill 2s;
+    }
     .headerHamburger{
+      #header__close{
+        display: none;
 
+      }
+    }
+    .headerClose{
+      #header__hamburger{
+        display: none;
+      }
+    }
+    .viewControl{
+      height: 30px;
+      width: auto;
+      margin: 20px 0 0 20px;
+      @include media-small{
+        height: 40px;
+        margin: 45px 0 0 50px;
+      }
+      cursor: pointer;
     }
     .headerLogo{
-      height: 40px;
+      height: 30px;
       width: auto;
-      margin: 45px 50px 0 0;
-      fill: black;
+      margin: 20px 20px 0 0;
+      @include media-small{
+        height: 40px;
+        margin: 45px 50px 0 0;
+      }
       cursor: pointer;
     }
   }
@@ -43,7 +64,9 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow-y: scroll;
+    border-bottom:2px solid black;
+    box-shadow:0 10px 50px 20px rgba(0,0,0,0.5);
     .headerMenu__choices{
       list-style: none;
       margin: 0;
@@ -54,7 +77,10 @@ header {
         margin: 0 auto;
         text-align: center;
         &:not(:last-of-type){
-          margin: 0 0 60px 0;
+          margin: 0 0 20px 0;
+          @include media-small{
+            margin: 0 0 60px 0;
+          }
         }
         a{
           font-size: 26px;
@@ -117,14 +143,10 @@ header {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      .menuClose{
-
-      }
       .headerLogo{
         height: 40px;
         width: auto;
         margin: 45px 50px 0 0;
-        fill: black;
         cursor: pointer;
       }
     }
