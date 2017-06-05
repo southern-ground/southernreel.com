@@ -1,5 +1,7 @@
 var sr = window.sr = {
     _: window._,
+    CRAW_INTERVAL: 2500,
+    crawlInterval: null,
     isMobile: null,
     $container: null,
     foldOffset: 0,
@@ -20,6 +22,7 @@ var sr = window.sr = {
             $iframe.attr('src', $iframe.data('url'));
         }
         sr.initHeader();
+        sr.initCrawl();
         $(window).scroll(function () {
             var $w = $(window),
                 top = $w.scrollTop();
@@ -36,6 +39,39 @@ var sr = window.sr = {
         $(window).resize(function () {
             sr.resizeSlideShow();
         });
+    },
+    initCrawl: function(){
+        $('.crawl').data('index', $('.crawl').children().length);
+        $('.crawl').each(function(){
+            $(this).find('li').each(function(index,el){
+                index === 0 ? $(el).addClass('active') : $(el).addClass('inactive');
+            });
+            $(this).css('margin-left', '50%');
+            sr.moveCrawl();
+        });
+        sr.crawlInterval = setInterval(sr.moveCrawl, sr.CRAW_INTERVAL);
+    },
+    moveCrawl: function(){
+        var $crawl = $('.crawl'),
+            newIndex = $crawl.data('index') + 1,
+            crawlCount = $crawl.children().length,
+            newWidth,
+        $active,
+        newLeft;
+        newIndex = newIndex >= crawlCount ? 0 : newIndex;
+        $crawl.children().each(function(index,el){
+            if(index === newIndex){
+                $active = $(this);
+                $active.removeClass('inactive').addClass('active');
+                newLeft = $active.position().left + 20; // +20 accounts for padding on the sections.
+                newWidth = $active.width();
+            }else{
+                $(this).removeClass('active').addClass('inactive');
+            }
+        });
+        newLeft += newWidth * 0.5;
+        $('.crawl').animate({'margin-left': -newLeft}, 'slow');
+        $crawl.data('index', newIndex);
     },
     initHeader: function () {
         var $logo = $('#southern-reel__logo');

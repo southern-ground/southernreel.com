@@ -132,6 +132,54 @@ html {
         background-color: black;
       }
     }
+    #About{
+      .about__logo{
+        width: 86px;
+        height: auto;
+      }
+      .about__description{
+        margin: 28px auto 12px auto;
+        text-align: center;
+      }
+      position: relative;
+      .crawl__container{
+        position: relative;
+        height: 60px;
+      }
+      .crawl{
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        left: 50%;
+        li{
+          text-transform: uppercase;
+          padding: 0 20px;
+          position: relative;
+          overflow-y: hidden;
+          -webkit-transition: opacity 0.5s, margin-left 0.5s, -webkit-transform 0.5s;
+          transition: opacity 0.5s, margin-left 0.5s, transform 0.5s;
+          white-space: nowrap;
+          &.active{
+
+          }
+          &.inactive{
+            opacity: 0.4;
+          }
+          .crawl__background{
+            position: absolute;
+            left: 0;
+            top: -21px;
+            right: 0;
+            bottom: -21px;
+            -webkit-box-shadow: inset 2px 0px 20px 0px rgba(0,0,0,0.43);
+            -moz-box-shadow: inset 2px 0px 20px 0px rgba(0,0,0,0.43);
+            box-shadow: inset 2px 0px 20px 0px rgba(0,0,0,0.43);
+          }
+        }
+      }
+    }
   }
 }
 
