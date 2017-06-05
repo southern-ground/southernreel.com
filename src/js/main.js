@@ -2,17 +2,43 @@ var sr = window.sr = {
     _: window._,
     isMobile: null,
     $container: null,
+    foldOffset: 0,
+    foldHeight: 0,
     init: function () {
-        sr.$container = $('#content');
         sr.isMobile = mobileAndTabletcheck();
+        sr.$container = $('#content');
         $('body').addClass(sr.isMobile ? "is-mobile" : "not-mobile");
         if (sr.isMobile) {
             sr.$container.removeClass('slide-show--active');
             sr.initMobileGallery();
             $('#slide-show-iframe').addClass('hidden');
             $('#mobile-gallery').removeClass('hidden');
-
+        }else{
+            var $iframe = $('#slide-show-iframe');
+            $iframe.addClass('active');
+            $iframe.attr('src', $iframe.data('url'));
         }
+        sr.initHeader();
+        $(window).scroll(function () {
+            var $w = $(window),
+                top = $w.scrollTop();
+                if (top === 0 && !sr.isMobile) {
+                    sr.$container.addClass('slide-show--active');
+                }
+                if(top > sr.foldHeight){
+                    $('body').addClass('below-the-fold');
+                }else{
+                    $('body').removeClass('below-the-fold');
+                }
+            });
+        sr.resizeSlideShow();
+        $(window).resize(function(){
+            sr.resizeSlideShow();
+        });
+    },
+    initHeader: function(){
+        var $logo = $('#southern-reel__logo');
+        sr.foldOffset = $logo.parent().height() - $logo.height() * 0.5;
         $('#headerMenu').slideUp();
         $('#header__hamburger').parent().click(function () {
             if ($('#headerMenu').is(":hidden")) {
@@ -49,21 +75,15 @@ var sr = window.sr = {
                 scrollTop: $(sectionID).offset().top
             }, 2000);
         });
-        $(window).scroll(function () {
-            var $w = $(window),
-                top = $w.scrollTop(),
-                windowHeight = $w.height();
-                if (top === 0 && !sr.isMobile) {
-                    sr.$container.addClass('slide-show--active');
-                }
-                if(top > windowHeight - 100){
-                    $('body').addClass('below-the-fold');
-                }else{
-                    $('body').removeClass('below-the-fold');
-                }
-            });
     },
     initMobileGallery: function(){
+        var $el;
+        $('.mobile-gallery--slide__background').each(function(i,el){
+            $el = $(el);
+            $el.css({
+                'background-image': 'url('+$el.data('background-image')+')'
+            });
+        });
         $('.mobile-gallery--slide__copy').click(function (e) {
             var url = $(this).data('url'),
                 title = $(this).data('title');
@@ -74,10 +94,17 @@ var sr = window.sr = {
         });
     },
     resizeSlideShow: function(){
-        $('.slide-show__iframe').each(function(i,el){
-            el.height = el.contentDocument.body.scrollHeight;
-            $(el).height(el.contentDocument.body.scrollHeight);
-        });
+        if(sr.isMobile){
+            // Find the bottom of the slide show:
+            sr.foldHeight = $('#mobile-gallery').height() - sr.foldOffset;
+        }else{
+            $('.slide-show__iframe').each(function(i,el){
+                el.height = el.contentDocument.body.scrollHeight;
+                $(el).height(el.contentDocument.body.scrollHeight);
+            });
+            console.log('resizeSlideShow',sr.foldOffset);
+            sr.foldHeight = $('#slide-show-iframe').height() - sr.foldOffset;
+        }
     },
     showVideo: function (obj) {
         var w = {
@@ -100,7 +127,7 @@ var sr = window.sr = {
         $('#overlay').fadeIn('fast');
     },
     slideShowScroll: function (evt) {
-        console.log('slideShowScroll::slideShowScroll', sr.isMobile, evt.slide === evt.total);
+        console.log('slideShowScroll::slideShowScroll');
         if (sr.isMobile) {
             return;
         }
