@@ -102,10 +102,12 @@ var sr_ss = { // Southern Reel Slide Show
         sr_ss.slideCount = $('li.slide').length;
         $('.slide .slide__copy').click(function (e) {
             var url = $(this).data('url'),
-                title = $(this).data('title');
+                title = $(this).data('title'),
+                subtitle = $(this).data('subtitle');
             window.parent.sr.showVideo({
                 url: url,
-                title: title
+                title: title,
+                subtitle: subtitle
             });
         });
     },

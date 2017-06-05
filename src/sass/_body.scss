@@ -107,6 +107,14 @@ html {
         height: 40px;
         background: url(../img/close-x.svg);
       }
+      .video-description{
+        position: absolute;
+        bottom: 20px;
+        width: 80%;
+        left: 10%;
+        text-align: center;
+        text-transform: uppercase;
+      }
     }
     iframe#slide-show-iframe{
       -webkit-transition: background-color 0.5s, -webkit-transform 0.5s;

@@ -86,10 +86,12 @@ var sr = window.sr = {
         });
         $('.mobile-gallery--slide__copy').click(function (e) {
             var url = $(this).data('url'),
-                title = $(this).data('title');
+                title = $(this).data('title'),
+                subtitle = $(this).data('subtitle');
             sr.showVideo({
                 url: url,
-                title: title
+                title: title,
+                subtitle: subtitle
             });
         });
     },
@@ -101,7 +103,10 @@ var sr = window.sr = {
             sr.foldHeight = $('#slide-show-iframe').height() - sr.foldOffset;
     },
     showVideo: function (obj) {
-        var w = {
+
+        console.log(obj);
+        var html = '<iframe id="vimeo-player" src="%%videoURL%%?title=0&amp;byline=0&amp;portrait=0&amp;loop=0&amp;color=222222&amp;autoplay=1&amp;api=1&amp;player_id=vimeo-player" width="%%vw%%" height="%%vh%%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo-api-active"></iframe>',
+            w = {
                 h: $(window).innerHeight(),
                 w: $(window).innerWidth()
             },
@@ -110,14 +115,22 @@ var sr = window.sr = {
                 w: 0, ratio: 360 / 640
             };
 
+
         vw.w = (w.w * 0.9) | 0;
         vw.h = vw.w * vw.ratio;
 
+        html = html.replace("%%videoURL%%", obj.url).replace('%%vw%%', vw.w).replace('%%vh%%', vw.h);
+
         $('#overlayContent').empty();
         $('#overlayContent').html(
-            '<iframe src="' + obj.url + '" width="' + vw.w + '" height="' + vw.h + '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' +
-            '<p>' + obj.title + '</p>'
+            html +
+            '<div class="video-description">' +
+            '<div class="video__title">'+obj.title+'</div>' +
+            '<div class="video__subtitle">' + obj.subtitle + '</div>' +
+            '</div>'
         );
+        $('#vimeo-player').width = vw.w;
+        $('#vimeo-player').height = vw.h;
         $('#overlay').fadeIn('fast');
     },
     slideShowScroll: function (evt) {

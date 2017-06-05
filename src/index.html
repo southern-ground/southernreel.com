@@ -132,11 +132,9 @@
             <li class="mobile-gallery--slide"
                 data-index="{{loop.index}}">
                 <div class="mobile-gallery--slide__background" data-background-image="../img/slides/{{project.image}}"></div>
-                <div class="mobile-gallery--slide__copy" data-url="{{project.video}}" data-title="{{project.title}}">
+                <div class="mobile-gallery--slide__copy" data-url="{{project.video}}" data-title="{{project.copy.title}}" data-subtitle="{{project.copy.subtitle}}">
                     <div class="mobile-gallery--slide__description">
-                        {% for copy in project.copy %}
-                        <p>{{copy}}</p>
-                        {% endfor %}
+                        <p>{{project.copy.title}}</p>
                     </div>
                     <span class="mobile-gallery--slide__watchNow">Watch Now</span>
                 </div>
