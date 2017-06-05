@@ -14,7 +14,6 @@ var sr_ss = { // Southern Reel Slide Show
     winHeight: 0,
     winWidth: 0,
     addListeners: function () {
-        console.log('sr_ss::addListeners');
         $(document).keydown(function (e) {
             if (e.keyCode == 37) {
                 sr_ss.prev();
@@ -114,14 +113,12 @@ var sr_ss = { // Southern Reel Slide Show
         $("html, body").animate({scrollTop: sr_ss.slideCount * sr_ss.winHeight}, "fast");
     },
     next: function () {
-        console.log('sr_ss::next');
         if (sr_ss.currentSlide < sr_ss.slideCount) {
             // Go to next:
             $("html, body").animate({scrollTop: sr_ss.currentSlide * sr_ss.winHeight}, "fast");
         }
     },
     prev: function () {
-        console.log('sr_ss::prev');
         if (sr_ss.currentSlide > 1) {
             // Go to next:
             $("html, body").animate({scrollTop: (sr_ss.currentSlide - 2) * sr_ss.winHeight}, "fast");
