@@ -108,6 +108,13 @@ html {
         background: url(../img/close-x.svg);
       }
     }
+    iframe#slide-show-iframe{
+      -webkit-transition: background-color 0.5s, -webkit-transform 0.5s;
+      transition: background-color 0.5s, transform 0.5s;
+      &.active{
+        background-color: black;
+      }
+    }
   }
 }
 
@@ -243,7 +250,6 @@ html {
       }
     }
   }
-
   .ambiveo {
     object-fit: cover;
     transform: translate3d(-50%, -50%, 0);
