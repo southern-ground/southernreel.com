@@ -109,11 +109,20 @@ html {
       }
       .video-description{
         position: absolute;
-        bottom: 20px;
         width: 80%;
+        bottom: 20px;
         left: 10%;
         text-align: center;
         text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        .video__title{
+          font-size: 24px;
+        }
+        .video__subtitle{
+          font-size: 18px;
+        }
       }
     }
     iframe#slide-show-iframe{

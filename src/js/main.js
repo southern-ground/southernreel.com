@@ -4,6 +4,7 @@ var sr = window.sr = {
     $container: null,
     foldOffset: 0,
     foldHeight: 0,
+    overlayOpen: false,
     init: function () {
         sr.isMobile = mobileAndTabletcheck();
         sr.$container = $('#content');
@@ -60,6 +61,8 @@ var sr = window.sr = {
         $('#overlayClose').click(function () {
             $('#overlay').fadeOut('fast', function () {
                 $(this).find('#overlayContent').empty();
+                $('body').removeClass('no-scroll,overlay-open');
+                sr.overlayOpen = false;
             });
         });
         $('.headerMenu__internalLink').click(function () {
@@ -101,25 +104,33 @@ var sr = window.sr = {
             sr.foldHeight = $('#mobile-gallery').height() - sr.foldOffset
             :
             sr.foldHeight = $('#slide-show-iframe').height() - sr.foldOffset;
-    },
-    showVideo: function (obj) {
+        if(sr.overlayOpen){
+            var videoSize = sr.getOverlayVideoSize();
+            $('#vimeo-player').width(videoSize.w).height(videoSize.h);
 
-        console.log(obj);
-        var html = '<iframe id="vimeo-player" src="%%videoURL%%?title=0&amp;byline=0&amp;portrait=0&amp;loop=0&amp;color=222222&amp;autoplay=1&amp;api=1&amp;player_id=vimeo-player" width="%%vw%%" height="%%vh%%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo-api-active"></iframe>',
-            w = {
-                h: $(window).innerHeight(),
-                w: $(window).innerWidth()
-            },
+        }
+    },
+    getOverlayVideoSize: function(){
+        var w = {
+            h: $(window).innerHeight(),
+            w: $(window).innerWidth()
+        },
             vw = {
                 h: 0,
-                w: 0, ratio: 360 / 640
+                w: 0,
+                ratio: 360 / 640
             };
-
-
-        vw.w = (w.w * 0.9) | 0;
+        vw.w = Math.min((w.w * 0.9), 1200);
         vw.h = vw.w * vw.ratio;
+        return vw;
+    },
+    showVideo: function (obj) {
+        var html = '<iframe id="vimeo-player" src="%%videoURL%%?title=0&amp;byline=0&amp;portrait=0&amp;loop=0&amp;color=222222&amp;autoplay=1&amp;api=1&amp;player_id=vimeo-player" width="%%vw%%" height="%%vh%%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo-api-active"></iframe>',
+            videoSize = sr.getOverlayVideoSize();
 
-        html = html.replace("%%videoURL%%", obj.url).replace('%%vw%%', vw.w).replace('%%vh%%', vw.h);
+        html = html.replace("%%videoURL%%", obj.url)
+            .replace('%%vw%%', videoSize.w)
+            .replace('%%vh%%', videoSize.h);
 
         $('#overlayContent').empty();
         $('#overlayContent').html(
@@ -129,9 +140,15 @@ var sr = window.sr = {
             '<div class="video__subtitle">' + obj.subtitle + '</div>' +
             '</div>'
         );
-        $('#vimeo-player').width = vw.w;
-        $('#vimeo-player').height = vw.h;
+
+        $('#vimeo-player').width = videoSize.w;
+        $('#vimeo-player').height = videoSize.h;
+
         $('#overlay').fadeIn('fast');
+
+        $('body').addClass('no-scroll,overlay-open');
+
+        sr.overlayOpen = true;
     },
     slideShowScroll: function (evt) {
         if (sr.isMobile) {
