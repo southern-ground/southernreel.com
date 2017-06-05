@@ -13,7 +13,7 @@ var sr = window.sr = {
             sr.initMobileGallery();
             $('#slide-show-iframe').addClass('hidden');
             $('#mobile-gallery').removeClass('hidden');
-        }else{
+        } else {
             var $iframe = $('#slide-show-iframe');
             $iframe.addClass('active');
             $iframe.attr('src', $iframe.data('url'));
@@ -22,21 +22,21 @@ var sr = window.sr = {
         $(window).scroll(function () {
             var $w = $(window),
                 top = $w.scrollTop();
-                if (top === 0 && !sr.isMobile) {
-                    sr.$container.addClass('slide-show--active');
-                }
-                if(top > sr.foldHeight){
-                    $('body').addClass('below-the-fold');
-                }else{
-                    $('body').removeClass('below-the-fold');
-                }
-            });
+            if (top === 0 && !sr.isMobile) {
+                sr.$container.addClass('slide-show--active');
+            }
+            if (top > sr.foldHeight) {
+                $('body').addClass('below-the-fold');
+            } else {
+                $('body').removeClass('below-the-fold');
+            }
+        });
         sr.resizeSlideShow();
-        $(window).resize(function(){
+        $(window).resize(function () {
             sr.resizeSlideShow();
         });
     },
-    initHeader: function(){
+    initHeader: function () {
         var $logo = $('#southern-reel__logo');
         sr.foldOffset = $logo.parent().height() - $logo.height() * 0.5;
         $('#headerMenu').slideUp();
@@ -65,7 +65,7 @@ var sr = window.sr = {
         $('.headerMenu__internalLink').click(function () {
             var sectionID = $(this).attr('href');
             $('body').removeClass('no-scroll');
-            if(!sr.isMobile){
+            if (!sr.isMobile) {
                 sectionID === '#Video' ? sr.$container.addClass('slide-show--active') : sr.$container.removeClass('slide-show--active');
             }
             $('#headerMenu').slideUp('fast');
@@ -76,12 +76,12 @@ var sr = window.sr = {
             }, 2000);
         });
     },
-    initMobileGallery: function(){
+    initMobileGallery: function () {
         var $el;
-        $('.mobile-gallery--slide__background').each(function(i,el){
+        $('.mobile-gallery--slide__background').each(function (i, el) {
             $el = $(el);
             $el.css({
-                'background-image': 'url('+$el.data('background-image')+')'
+                'background-image': 'url(' + $el.data('background-image') + ')'
             });
         });
         $('.mobile-gallery--slide__copy').click(function (e) {
@@ -127,7 +127,6 @@ var sr = window.sr = {
         $('#overlay').fadeIn('fast');
     },
     slideShowScroll: function (evt) {
-        console.log('slideShowScroll::slideShowScroll');
         if (sr.isMobile) {
             return;
         }
