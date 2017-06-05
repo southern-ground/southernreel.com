@@ -93,18 +93,12 @@ var sr = window.sr = {
             });
         });
     },
-    resizeSlideShow: function(){
-        if(sr.isMobile){
-            // Find the bottom of the slide show:
-            sr.foldHeight = $('#mobile-gallery').height() - sr.foldOffset;
-        }else{
-            $('.slide-show__iframe').each(function(i,el){
-                el.height = el.contentDocument.body.scrollHeight;
-                $(el).height(el.contentDocument.body.scrollHeight);
-            });
-            console.log('resizeSlideShow',sr.foldOffset);
+    resizeSlideShow: function () {
+        sr.isMobile
+            ?
+            sr.foldHeight = $('#mobile-gallery').height() - sr.foldOffset
+            :
             sr.foldHeight = $('#slide-show-iframe').height() - sr.foldOffset;
-        }
     },
     showVideo: function (obj) {
         var w = {
