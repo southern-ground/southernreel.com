@@ -145,11 +145,26 @@
     </section>
     <section id="Photography">
         <h2>Photography</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
+        <div class="photo-carousel__container">
+            <svg id="photo-carousel__next"
+                 class="photo-carousel__control photo-carousel__control--prev"
+                 viewBox="0 0 30 50">
+                <polygon points="0,3 3.3,0 30,25 3.3,50 0,47 23.4,25 "/>
+            </svg>
+            <ul class="photo-carousel">
+                {% for photo in photography %}
+                <li class="photo-carousel__item">
+                    <img class="photo-carousel__image" data-original="{{photo.image}}"/>
+                </li>
+                {% endfor %}
+            </ul>
+            <svg id="photo-carousel__next"
+                 class="photo-carousel__control photo-carousel__control--next"
+                 viewBox="0 0 30 50">
+                <polygon points="0,3 3.3,0 30,25 3.3,50 0,47 23.4,25 "/>
+            </svg>
+        </div>
+
     </section>
     <section id="Design">
         <h2>Design</h2>
