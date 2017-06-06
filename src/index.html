@@ -76,18 +76,29 @@
 <header id="southern-reel__header">
     <nav id="headerMenu" class="headerMenu" style="display: none;">
         <ul class="headerMenu__choices">
-            <li><a href="#Video" class="headerMenu__internalLink">Video</a></li>
-            <li><a href="#Photography" class="headerMenu__internalLink">Photography</a></li>
-            <li><a href="#Design" class="headerMenu__internalLink">Design</a></li>
-            <li><a href="#About" class="headerMenu__internalLink">About</a></li>
-            <li><a href="#OurTeam" class="headerMenu__internalLink">Our Team</a></li>
-            <li><a href="#Contact" class="headerMenu__internalLink">Contact</a></li>
+            {% for section in sections %}
+            <li>
+                <a href="#{% if section.target %}{{section.target}}{% else %}{{section.text}}{% endif %}"
+                   class="headerMenu__internalLink">
+                    {{section.text}}
+                </a>
+            </li>
+            {% endfor %}
             <li>
                 <ul class="headerMenu__social">
-                    <li><a href="#" class="headerMenu__social--facebook">Facebook</a></li>
-                    <li><a href="#" class="headerMenu__social--instagram">Instagram</a></li>
-                    <li><a href="#" class="headerMenu__social--vimeo">Vimeo</a></li>
-                    <li><a href="#" class="headerMenu__social--twitter">Twitter</a></li>
+                    <li>
+                        <a href="{{social.facebook}}"
+                           target="_blank"
+                           class="headerMenu__social--facebook">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="{{social.instagram}}"
+                           target="_blank"
+                           class="headerMenu__social--instagram">Instagram</a>
+                    </li>
+                    <li><a href="{{social.vimeo}}" target="_blank" class="headerMenu__social--vimeo">Vimeo</a></li>
+                    <li><a href="{{social.twitter}}" target="_blank" class="headerMenu__social--twitter">Twitter</a>
+                    </li>
                 </ul>
             </li>
         </ul>
