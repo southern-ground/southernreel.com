@@ -77,6 +77,7 @@ var sr = window.sr = {
             $(this).css('margin-left', '50%');
             sr.moveCrawl();
         });
+        clearInterval(sr.crawlInterval);
         sr.crawlInterval = setInterval(sr.moveCrawl, sr.CRAW_INTERVAL);
     },
     initHeader: function () {
@@ -98,6 +99,8 @@ var sr = window.sr = {
             }
         });
         $('#southern-reel__logo').click(function () {
+            $('body').removeClass('no-scroll');
+            $('#headerMenu').slideUp();
             $('html, body').animate({
                 scrollTop: 0
             }, 500);
@@ -109,7 +112,7 @@ var sr = window.sr = {
         $('#overlayClose').click(function () {
             $('#overlay').fadeOut('fast', function () {
                 $(this).find('#overlayContent').empty();
-                $('body').removeClass('no-scroll,overlay-open');
+                $('body').removeClass('no-scroll overlay-open');
                 sr.overlayOpen = false;
             });
         });
@@ -221,7 +224,7 @@ var sr = window.sr = {
 
         $('#overlay').fadeIn('fast');
 
-        $('body').addClass('no-scroll,overlay-open');
+        $('body').addClass('no-scroll overlay-open');
 
         sr.overlayOpen = true;
     },
