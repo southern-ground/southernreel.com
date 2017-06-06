@@ -411,25 +411,43 @@ html {
       align-items: center;
       color: white;
       z-index: 100;
+      #overlayContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
       a.overlay__close {
         text-indent: -10000px;
         position: absolute;
-        top: 40px;
+        top: 20px;
+        left: 20px;
+        @include media-tablet-portrait{
+          top: 40px;
+          left: auto;
+        }
         display: block;
         width: 40px;
         height: 40px;
         background: url(../img/close-x.svg);
       }
       .video-description {
-        width: 80%;
+        width: 100vw;
         margin: 20px auto 0 auto;
         text-align: center;
         text-transform: uppercase;
         .video__title {
-          font-size: 24px;
+          font-size: 14px;
+          @include media-tablet-portrait{
+            font-size:24px;
+          }
         }
         .video__subtitle {
-          font-size: 18px;
+          font-size:12px;
+          @include media-tablet-portrait{
+            font-size: 18px;
+          }
           margin: 10px 0 0 0;
         }
       }
