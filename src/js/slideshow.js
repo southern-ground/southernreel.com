@@ -45,7 +45,6 @@ var sr_ss = { // Southern Reel Slide Show
         });
     },
     continueScroll: function () {
-        var pos = 1 + (sr_ss.previousScrollTop / sr_ss.winHeight);
         if (sr_ss.scrollDirection === 1) {
             if (sr_ss.currentSlide < sr_ss.slideCount) {
                 // Go to next:
@@ -104,11 +103,13 @@ var sr_ss = { // Southern Reel Slide Show
         $('.slide .slide__copy').click(function (e) {
             var url = $(this).data('url'),
                 title = $(this).data('title'),
-                subtitle = $(this).data('subtitle');
+                subtitle = $(this).data('subtitle'),
+                aspectRatio = $(this).data('aspect-ratio') || 6/4;
             window.parent.sr.showVideo({
                 url: url,
                 title: title,
-                subtitle: subtitle
+                subtitle: subtitle,
+                aspectRatio: aspectRatio
             });
         });
     },
