@@ -13,9 +13,9 @@
             data-index="{{loop.index}}"
             style="z-index:{{loop.revindex}};opacity={% if loop.index === 1 %}1{% else %}0{% endif %}">
             <div class="slide__background" style="background-image:url(../img/slides/{{project.image}})"></div>
-            <div class="slide__copy" data-url="{{project.video}}" data-title="{{project.copy.title}}" data-subtitle="{{project.copy.subtitle}}">
+            <div class="slide__copy" data-url="{{project.video}}" data-title="{{project.copy.title|safe}}" data-subtitle="{{project.copy.subtitle|safe}}">
                 <div class="slide__description">
-                    <p>{{project.copy.title}}</p>
+                    {{project.title|safe}}
                 </div>
                 <span class="slide__watchNow">Watch Now</span>
             </div>
