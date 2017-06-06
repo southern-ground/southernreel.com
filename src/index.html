@@ -210,16 +210,16 @@
         {% endfor %}
     </section>
     <section id="OurTeam">
-        <h2>Team</h2>
+        <h2>Our Team</h2>
         <ul class="team-members">
             {% for member in team %}
             <li>
-                <span class="team-member__name">
+                <div class="team-member__name">
                     {{member.name}}
-                </span><br/>
-                <span class="team-member__title">
-                    {{member.title}}
-                </span>
+                </div>
+                <div class="team-member__title">
+                    {{member.title | safe}}
+                </div>
             </li>
             {% endfor %}
         </ul>
