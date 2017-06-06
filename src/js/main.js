@@ -8,6 +8,40 @@ var sr = window.sr = {
     foldHeight: 0,
     lazyLoad: null,
     overlayOpen: false,
+    sliderInstance: null,
+    checkFold: function () {
+        var $w = $(window),
+            top = $w.scrollTop();
+        if (top === 0 && !sr.isMobile) {
+            sr.$container.addClass('slide-show--active');
+        }
+        if (top > sr.foldHeight) {
+            $('body').addClass('below-the-fold');
+        } else {
+            $('body').removeClass('below-the-fold');
+        }
+    },
+    getOverlayVideoSize: function () {
+        var w = {
+                h: $(window).innerHeight(),
+                w: $(window).innerWidth()
+            },
+            vw = {
+                h: 0,
+                w: 0,
+                ratio: 360 / 640
+            };
+        vw.w = Math.min((w.w * 0.9), 1360);
+        vw.h = vw.w * vw.ratio;
+
+        // Height constraints come into play:
+        if (vw.h > w.h - 250) {
+            vw.h = w.h - 250;
+            vw.w = vw.h / vw.ratio;
+        }
+
+        return vw;
+    },
     init: function () {
         sr.isMobile = mobileAndTabletcheck();
         sr.$container = $('#content');
@@ -19,61 +53,31 @@ var sr = window.sr = {
             $('#mobile-gallery').removeClass('hidden');
         } else {
             var $iframe = $('#slide-show-iframe');
-            $iframe.addClass('active');
-            $iframe.attr('src', $iframe.data('url'));
+            $iframe.addClass('active')
+                .attr('src', $iframe.data('url'));
         }
         sr.initHeader();
         sr.initCrawl();
         $(window).scroll(function () {
-            var $w = $(window),
-                top = $w.scrollTop();
-            if (top === 0 && !sr.isMobile) {
-                sr.$container.addClass('slide-show--active');
-            }
-            if (top > sr.foldHeight) {
-                $('body').addClass('below-the-fold');
-            } else {
-                $('body').removeClass('below-the-fold');
-            }
+            sr.checkFold();
         });
-        sr.resizeSlideShow();
+        sr.checkFold();
         $(window).resize(function () {
             sr.resizeSlideShow();
         });
+        sr.resizeSlideShow();
         sr.lazyLoad = new LazyLoad();
     },
-    initCrawl: function(){
+    initCrawl: function () {
         $('.crawl').data('index', $('.crawl').children().length);
-        $('.crawl').each(function(){
-            $(this).find('li').each(function(index,el){
+        $('.crawl').each(function () {
+            $(this).find('li').each(function (index, el) {
                 index === 0 ? $(el).addClass('active') : $(el).addClass('inactive');
             });
             $(this).css('margin-left', '50%');
             sr.moveCrawl();
         });
         sr.crawlInterval = setInterval(sr.moveCrawl, sr.CRAW_INTERVAL);
-    },
-    moveCrawl: function(){
-        var $crawl = $('.crawl'),
-            newIndex = $crawl.data('index') + 1,
-            crawlCount = $crawl.children().length,
-            newWidth,
-        $active,
-        newLeft;
-        newIndex = newIndex >= crawlCount ? 0 : newIndex;
-        $crawl.children().each(function(index,el){
-            if(index === newIndex){
-                $active = $(this);
-                $active.removeClass('inactive').addClass('active');
-                newLeft = $active.position().left + 20; // +20 accounts for padding on the sections.
-                newWidth = $active.width();
-            }else{
-                $(this).removeClass('active').addClass('inactive');
-            }
-        });
-        newLeft += newWidth * 0.5;
-        $('.crawl').animate({'margin-left': -newLeft}, 'slow');
-        $crawl.data('index', newIndex);
     },
     initHeader: function () {
         var $logo = $('#southern-reel__logo');
@@ -92,6 +96,12 @@ var sr = window.sr = {
                 $('#southern-reel__hamburger').removeClass('headerClose dark').addClass('headerHamburger light');
 
             }
+        });
+        $('#southern-reel__logo').click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+            sr.rewindSlideShow();
         });
         $('#menuClose').click(function () {
             $('#headerMenu').slideUp();
@@ -114,7 +124,10 @@ var sr = window.sr = {
             $('#southern-reel__logo').removeClass('dark').addClass('light');
             $('html, body').animate({
                 scrollTop: $(sectionID).offset().top
-            }, 2000);
+            }, 2000, function(){
+                // Callback.
+                sr.rewindSlideShow();
+            });
         });
     },
     initMobileGallery: function () {
@@ -136,34 +149,58 @@ var sr = window.sr = {
             });
         });
     },
+    moveCrawl: function () {
+        var $crawl = $('.crawl'),
+            newIndex = $crawl.data('index') + 1,
+            crawlCount = $crawl.children().length,
+            newWidth,
+            $active,
+            newLeft;
+        newIndex = newIndex >= crawlCount ? 0 : newIndex;
+        $crawl.children().each(function (index, el) {
+            if (index === newIndex) {
+                $active = $(this);
+                $active.removeClass('inactive').addClass('active,blurred');
+                newLeft = $active.position().left + 20; // +20 accounts for padding on the sections.
+                newWidth = $active.width();
+            } else {
+                $(this).removeClass('active,blurred').addClass('inactive');
+            }
+        });
+        newLeft += newWidth * 0.5;
+        $('.crawl').animate({'margin-left': -newLeft}, 'slow');
+        $crawl.data('index', newIndex);
+    },
     resizeSlideShow: function () {
         sr.isMobile
             ?
             sr.foldHeight = $('#mobile-gallery').height() - sr.foldOffset
             :
             sr.foldHeight = $('#slide-show-iframe').height() - sr.foldOffset;
-        if(sr.overlayOpen){
+        if (sr.overlayOpen) {
             var videoSize = sr.getOverlayVideoSize();
             $('#vimeo-player').width(videoSize.w).height(videoSize.h);
 
         }
     },
-    getOverlayVideoSize: function(){
-        var w = {
-            h: $(window).innerHeight(),
-            w: $(window).innerWidth()
-        },
-            vw = {
-                h: 0,
-                w: 0,
-                ratio: 360 / 640
-            };
-        vw.w = Math.min((w.w * 0.9), 1200);
-        vw.h = vw.w * vw.ratio;
-        return vw;
+    rewindSlideShow: function () {
+        if (sr.isMobile || !sr.sliderInstance) return;
+
+        // Rewind the slide show to the start:
+        try {
+            sr.sliderInstance.rewind();
+        } catch (e) {
+            e.stack ? console.warn(e.stack) : console.warn(e.name + "\n\r\t" + e.message);
+        } finally {
+            // Nothing.
+        }
+
+    },
+    setSliderReference: function (obj) {
+        sr.sliderInstance = obj;
     },
     showVideo: function (obj) {
-        var html = '<iframe id="vimeo-player" src="%%videoURL%%?title=0&amp;byline=0&amp;portrait=0&amp;loop=0&amp;color=222222&amp;autoplay=1&amp;api=1&amp;player_id=vimeo-player" width="%%vw%%" height="%%vh%%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo-api-active"></iframe>',
+        var html = '<iframe id="vimeo-player" src="https://player.vimeo.com/video/%%videoURL%%?title=0&amp;byline=0&amp;portrait=0&amp;loop=0&amp;color=222222&amp;autoplay=1&amp;api=1&amp;player_id=vimeo-player" width="%%vw%%" height="%%vh%%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo-api-active"></iframe>',
             videoSize = sr.getOverlayVideoSize();
 
         html = html.replace("%%videoURL%%", obj.url)
@@ -174,7 +211,7 @@ var sr = window.sr = {
         $('#overlayContent').html(
             html +
             '<div class="video-description">' +
-            '<div class="video__title">'+obj.title+'</div>' +
+            '<div class="video__title">' + obj.title + '</div>' +
             '<div class="video__subtitle">' + obj.subtitle + '</div>' +
             '</div>'
         );
