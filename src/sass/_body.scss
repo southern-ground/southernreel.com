@@ -25,7 +25,7 @@ html {
       #southern-reel__hamburger, #southern-reel__logo {
         fill: black;
         &:hover {
-          fill: red;
+          // fill: red;
         }
       }
     }
@@ -42,23 +42,20 @@ html {
         h2, h3{
           letter-spacing: 5px;
           text-transform: uppercase;
-          margin: 40px auto 30px auto;
+          margin: 0 auto 30px auto;
           font-size: 18px;
           font-weight: 700;
         }
         h3{
           font-size: 16px;
         }
-        &.slide-show__container {
-          padding: 0;
-        }
-        @include media-xl {
-          padding: 0;
-        }
-        @include media-desktop {
-          max-width: $desktop;
-          margin-left: auto;
-          margin-right: auto;
+        &:not(.slide-show__container){
+          padding: 130px 20px 0 20px;
+          @include media-desktop {
+            max-width: $desktop;
+            margin-left: auto;
+            margin-right: auto;
+          }
         }
         .slide-show__iframe {
           overflow: hidden;
@@ -106,6 +103,17 @@ html {
     }
     #Photography{
       .photo-carousel{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li.photo-carousel__item{
+
+          .photo-carousel__image{
+
+          }
+        }
+
         &__container{
           display: flex;
           flex-direction: row;
@@ -114,11 +122,25 @@ html {
           align-content: center;
           position: relative;
         }
+
         &__control{
           height: 40px;
           width: auto;
-          -webkit-transition: opacity 0.5s -webkit-transform 0.5s;
+          -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
           transition: opacity 0.5s, transform 0.5s;
+          position: absolute;
+          margin: 0 0 -20px 0;
+          padding: 0 0 0 20px;
+          bottom: 50%;
+          fill: white;
+          opacity: 0.2;
+          @include media-xl{
+            position: relative;
+            bottom: inherit;
+            opacity: 1;
+            fill: $ink;
+            margin: 0;
+          }
           &:hover{
             cursor: pointer;
             opacity: 1;
@@ -131,48 +153,18 @@ html {
             transform: rotate(180deg);             /* W3C compliant browsers */
             /* IE8 and below */
             filter: progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, DX=0, DY=0, SizingMethod='auto expand');
-            position: absolute;
             left: 16px;
             z-index:2;
-            fill: white;
-            opacity: 0.2;
-            &:hover{
-              opacity: 1;
-            }
             @include media-xl{
-              margin: 0 20px 0 0;
-              position: relative;
-              left: inherit;
-              opacity: 1;
-              fill: black;
+              left: auto;
             }
           }
           &--next{
-            position: absolute;
             right: 16px;
-            z-index:2;
-            fill: white;
-            opacity: 0.2;
+            z-index:3;
             @include media-xl{
-              margin: 0 0 0 20px;
-              position: relative;
-              right: inherit;
-              opacity: 1;
-              fill: black;
+              margin: 0 20px;
             }
-          }
-        }
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 1300px;
-
-        .photo-carousel__item{
-          .photo-carousel__image{
-            width: 100%;
-            height: auto;
           }
         }
       }
@@ -183,12 +175,13 @@ html {
         height: auto;
       }
       .about__description {
-        margin: 28px auto 12px auto;
+        margin: 0 auto 30px auto;
         text-align: center;
+        padding: 0 20px;
       }
       position: relative;
       .crawl__container {
-        width: 175px;
+        width: 278px;
         margin: 0 auto 40px auto;
         position: relative;
         height: 40px;
@@ -203,9 +196,9 @@ html {
           top: -21px;
           right: 0;
           bottom: -21px;
-          -webkit-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.23);
+          /*-webkit-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.23);
           -moz-box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.23);
-          box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.23);
+          box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.23);*/
         }
       }
       .crawl {
@@ -216,6 +209,9 @@ html {
         display: flex;
         left: 50%;
         top: 30px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 5px;
         li {
           text-transform: uppercase;
           padding: 0 20px;
@@ -243,6 +239,9 @@ html {
           text-transform: uppercase;
           margin: 0;
           padding: 0 0 30px;
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 3px;
         }
         &--copy{
           p{
@@ -250,6 +249,7 @@ html {
             padding: 0 0 30px 0;
           }
         }
+        padding: 40px 20px 0 20px;
         @include media-tablet-portrait{
           padding: 40px 0 0 0;
           width: 100%;
@@ -269,7 +269,6 @@ html {
         flex-flow: wrap;
         justify-content: center;
         align-items: flex-start;
-        border-top: 1px solid black;
         padding: 40px 0 0;
         li {
           text-align: center;
@@ -286,9 +285,9 @@ html {
           margin: 0 0 80px;
           .team-member {
             &__name {
-              font-size: 18px;
+              font-size: 16px;
               font-weight: 700;
-              letter-spacing: 1px;
+              letter-spacing: 3px;
               text-transform: uppercase;
             }
             &__title {
@@ -303,6 +302,30 @@ html {
     }
     #Contact{
       .contact{
+        text-align: center;
+        &__logo{
+          height: 86px;
+          width: auto;
+          margin: 0 0 30px;
+        }
+        address{
+          margin: 0;
+          padding:0;
+        }
+        &__email{
+          margin: 0 0 20px;
+          a{
+            text-decoration: none;
+            color: $ink;
+            font-weight: 700;
+            &:visited{
+
+            }
+            &:active{
+
+            }
+          }
+        }
         &__telephone{
           a{
             text-decoration: none;
@@ -316,6 +339,7 @@ html {
           }
         }
         &__map{
+          margin: 0 0 20px;
           a{
             font-weight: 700;
             text-decoration: none;
