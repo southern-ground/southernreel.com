@@ -2,22 +2,57 @@
   "iframeUrl": "iframe.html",
   "projects": [
     {
-      "title": "Sir Rosevelt Take Your Love Away",
-      "copy": {"title": "Sir Rosevelt Take Your Love Away", "subtitle": "A Southern Reel Production"},
-      "video": "https://player.vimeo.com/video/207580033",
-      "image": "slide-01.jpg"
+      "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
+      "copy": {"title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>", "subtitle": "A Southern Reel Production"},
+      "video": "207580033",
+      "image": "take-your-love-away-promo.jpg"
     },
     {
-      "title": "Placeholder One",
-      "copy": {"title":"Sir Rosevelt Take Your Love Away", "subtitle": "A Southern Reel Production"},
-      "video": "https://player.vimeo.com/video/207580033",
-      "image": "slide-02.jpg"
+      "title": "<p>Zac Brown Band</p><p class='bold'>Remedy Part I</p>",
+      "copy": {"title":"Zac Brown Band <span class='bold'>Remedy Part I</span>", "subtitle": "A Southern Reel Production"},
+      "video": "219780777",
+      "image": "remedy-part-one.jpg"
     },
     {
-      "title": "Placeholder Two",
-      "copy": {"title":"Sir Rosevelt Take Your Love Away", "subtitle": "A Southern Reel Production"},
-      "video": "https://player.vimeo.com/video/207580033",
-      "image": "slide-03.jpg"
+      "title": "<p>Sir Rosevelt</p><p class='bold'>Sunday Finest</p>",
+      "copy": {"title":"Sir Rosevelt <span class='bold'>Sunday Finest</span>", "subtitle": "A Southern Reel Production"},
+      "video": "219614235",
+      "image": "sunday-finest.jpg"
     }
+  ],
+  "about":{
+    "capabilities":["Film Production", "Photography", "Graphic Design", "Content Strategy", "Social Media"],
+    "content": [
+      {
+        "title": "Film",
+        "copy": "<p>Our core values of integrity and creativity are the driving forces behind Southern Reel storytelling. We act with passion and professionalism to produce moving imagery sure to strike and inspire.</p>"
+      },
+      {
+        "title": "Design",
+        "copy": "<p>Southern Reel Design is more than meets the eye. When working on a project, we go beneath the surface to create a visual experience from the inside out.</p>"
+      },
+      {
+        "title": "Digital Strategy",
+        "copy": "<p>Content is just the beginning. Together with our design and film teams, we define how to engage with audiences through effective editorial strategy, curation and content creation.</p>"
+      }
+    ]
+  },
+  "team":[
+    {"name":"Zac Brown","title":"Founder"},
+    {"name":"Jeff Willard","title":"CEO"},
+    {"name":"Chad Gibson","title":"CCO"},
+    {"name":"Diego Pernia","title":"Director"},
+    {"name":"Antonio Riestra","title":"Director of Photography, ASC,&nbsp;AMC,&nbsp;AČK"},
+    {"name":"Matt Tinsley","title":"Creative Director"},
+    {"name":"Shivani Kapoor","title":"Art Director"},
+    {"name":"Morgan Hanson","title":"Senior Copywriter"},
+    {"name":"Alyssa Goodman","title":"Communications Specialist"},
+    {"name":"Jessica Robinson","title":"Digital Content Strategist"},
+    {"name":"AJ Parker","title":"Video Production Manager"},
+    {"name":"Ferris Thomas","title":"Senior Developer"},
+    {"name":"Suzanne Powell","title":"Visual Effects Supervisor"}
+  ],
+  "photography":[
+    {"image": "./img/photography/sir-rosevelt.jpg"}
   ]
 }
