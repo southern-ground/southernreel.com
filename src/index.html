@@ -122,7 +122,6 @@
 
     </nav>
 </header>
-
 <div id="content" class="slide-show--active">
     <section id="Video" class="slide-show__container">
         <iframe id="slide-show-iframe" data-url="{{iframeUrl}}" class="slide-show__iframe"
@@ -134,9 +133,9 @@
                 <div class="mobile-gallery--slide__background"
                      data-background-image="../img/slides/{{project.image}}"></div>
                 <div class="mobile-gallery--slide__copy" data-url="{{project.video}}"
-                     data-title="{{project.copy.title}}" data-subtitle="{{project.copy.subtitle}}">
+                     data-title="{{project.copy.title|safe}}" data-subtitle="{{project.copy.subtitle|safe}}">
                     <div class="mobile-gallery--slide__description">
-                        <p>{{project.copy.title}}</p>
+                        {{project.title|safe}}
                     </div>
                     <span class="mobile-gallery--slide__watchNow">Watch Now</span>
                 </div>
