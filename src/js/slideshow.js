@@ -70,7 +70,7 @@ var sr_ss = { // Southern Reel Slide Show
         sr_ss.previousScrollTop = d.top;
         sr_ss.currentSlide = d.currentSlide;
         $el.css({
-            opacity: opacity,
+            opacity: opacity <= 0.03 ? 0 : opacity,
             display: d.delta > 0.03 ? "flex" : "none"
         });
         $image.css({transform: 'scale(' + (((1 - d.delta) * 0.4) + 1) + ')'});
