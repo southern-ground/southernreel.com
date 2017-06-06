@@ -6,6 +6,7 @@ var sr = window.sr = {
     $container: null,
     foldOffset: 0,
     foldHeight: 0,
+    lazyLoad: null,
     overlayOpen: false,
     init: function () {
         sr.isMobile = mobileAndTabletcheck();
@@ -39,6 +40,7 @@ var sr = window.sr = {
         $(window).resize(function () {
             sr.resizeSlideShow();
         });
+        sr.lazyLoad = new LazyLoad();
     },
     initCrawl: function(){
         $('.crawl').data('index', $('.crawl').children().length);
