@@ -97,6 +97,7 @@ var sr_ss = { // Southern Reel Slide Show
         sr_ss.initSlides();
         sr_ss.resizeSlider();
         sr_ss.addListeners();
+        sr_ss.setBeacon();
     },
     initSlides: function () {
         sr_ss.slideCount = $('li.slide').length;
@@ -131,6 +132,13 @@ var sr_ss = { // Southern Reel Slide Show
         sr_ss.winWidth = $(window).innerWidth();
         sr_ss.$container.css('min-height', sr_ss.slideCount * sr_ss.winHeight);
     },
+    rewind: function(){
+        $('body, html').animate({
+            'scrollTop': 0
+        }, 'fast', function(){
+            // Callback;
+        });
+    },
     scrollData: function () {
         var wh = $(window).innerHeight(),
             t = $(window).scrollTop(),
@@ -145,11 +153,8 @@ var sr_ss = { // Southern Reel Slide Show
             delta: ((cs * wh) - t) / wh
         }
     },
-    setFollowUp: function () {
-        clearTimeout(sr_ss.followUpTimeout);
-        sr_ss.followUpTimeout = setTimeout(function () {
-            sr_ss.continueScroll();
-        }, sr_ss.FOLLOW_UP_TIMEOUT);
+    setBeacon: function(){
+        window.parent.sr.setSliderReference(sr_ss);
     }
 };
 sr_ss.init();
