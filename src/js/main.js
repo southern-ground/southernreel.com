@@ -22,28 +22,20 @@ var sr = window.sr = {
         }
     },
     getOverlayVideoSize: function () {
-        var w = {
-                h: $(window).innerHeight(),
-                w: $(window).innerWidth()
-            },
-            vw = {
-                h: 0,
-                w: 0,
-                ratio: 360 / 640
-            };
-        vw.w = Math.min((w.w * 0.9), 1360);
-        vw.h = vw.w * vw.ratio;
+        var $win = $(window),
+            w = $win.innerWidth(),
+            h = $win.innerHeight,
+            vw = 0,
+            vh = 0,
+            aspectRatio = 1.77;
 
-        console.log($(window).height(), $(window).width());
+        vw = ( w * 0.6 ) | 0;
+        vh = vw / aspectRatio;
 
-        // Height constraints come into play:
-        if (vw.h > w.h - 350) {
-            console.log('too tall');
-            vw.h = w.h - 350;
-            vw.w = vw.h / vw.ratio;
-        }
-
-        return vw;
+        return {
+            w: vw,
+            h: vh
+        };
     },
     init: function () {
         sr.isMobile = mobileAndTabletcheck();
@@ -98,7 +90,6 @@ var sr = window.sr = {
                 $('#headerMenu').slideUp();
                 $('#southern-reel__logo').removeClass('dark').addClass('light');
                 $('#southern-reel__hamburger').removeClass('headerClose dark').addClass('headerHamburger light');
-
             }
         });
         $('#southern-reel__logo').click(function () {
@@ -123,14 +114,18 @@ var sr = window.sr = {
             var sectionID = $(this).attr('href');
             $('body').removeClass('no-scroll');
             if (!sr.isMobile) {
-                sectionID === '#Video' ? sr.$container.addClass('slide-show--active') : sr.$container.removeClass('slide-show--active');
+                sectionID === '#Video'
+                    ?
+                    sr.$container.addClass('slide-show--active')
+                    :
+                    sr.$container.removeClass('slide-show--active');
             }
             $('#headerMenu').slideUp('fast');
             $('#southern-reel__hamburger').removeClass('headerClose dark').addClass('headerHamburger light');
             $('#southern-reel__logo').removeClass('dark').addClass('light');
             $('html, body').animate({
                 scrollTop: $(sectionID).offset().top
-            }, 2000, function(){
+            }, 2000, function () {
                 // Callback.
                 sr.rewindSlideShow();
             });
@@ -148,13 +143,11 @@ var sr = window.sr = {
             console.log($(this).data());
             var url = $(this).data('url'),
                 title = $(this).data('title'),
-                subtitle = $(this).data('subtitle'),
-                aspectRatio = $(this).data('aspect-ratio') || 6/4;
+                subtitle = $(this).data('subtitle');
             sr.showVideo({
                 url: url,
                 title: title,
-                subtitle: subtitle,
-                aspectRatio: aspectRatio
+                subtitle: subtitle
             });
         });
     },
@@ -212,9 +205,6 @@ var sr = window.sr = {
 
         var html = '<iframe id="vimeo-player" src="https://player.vimeo.com/video/%%videoURL%%?title=0&amp;byline=0&amp;portrait=0&amp;loop=0&amp;color=222222&amp;autoplay=1&amp;api=1&amp;player_id=vimeo-player" width="%%vw%%" height="%%vh%%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo-api-active"></iframe>',
             videoSize = sr.getOverlayVideoSize();
-
-        console.log(obj.aspectRatio);
-        console.log($(window).width(), $(window).height(), $(window).width()/$(window).height());
 
         html = html.replace("%%videoURL%%", obj.url)
             .replace('%%vw%%', videoSize.w)
