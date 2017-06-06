@@ -1,27 +1,66 @@
 {
+  "sections": [
+    {
+      "text": "Video"
+    },
+    {
+      "text": "Photography"
+    },
+    {
+      "text": "About"
+    },
+    {
+      "text": "Our Team",
+      "target": "OurTeam"
+    },
+    {
+      "text": "Contact"
+    }
+  ],
+  "social": {
+    "facebook": "https://www.facebook.com/SouthernReel/",
+    "instagram": "https://www.instagram.com/southernreel/",
+    "twitter": "https://twitter.com/SouthernReel",
+    "vimeo": "https://vimeo.com/southernreel"
+  },
   "iframeUrl": "iframe.html",
   "projects": [
     {
       "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
-      "copy": {"title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>", "subtitle": "A Southern Reel Production"},
+      "copy": {
+        "title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>",
+        "subtitle": "A Southern Reel Production"
+      },
       "video": "207580033",
       "image": "take-your-love-away-promo.jpg"
     },
     {
       "title": "<p>Zac Brown Band</p><p class='bold'>Remedy Part I</p>",
-      "copy": {"title":"Zac Brown Band <span class='bold'>Remedy Part I</span>", "subtitle": "A Southern Reel Production"},
+      "copy": {
+        "title": "Zac Brown Band <span class='bold'>Remedy Part I</span>",
+        "subtitle": "A Southern Reel Production"
+      },
       "video": "219780777",
       "image": "remedy-part-one.jpg"
     },
     {
       "title": "<p>Sir Rosevelt</p><p class='bold'>Sunday Finest</p>",
-      "copy": {"title":"Sir Rosevelt <span class='bold'>Sunday Finest</span>", "subtitle": "A Southern Reel Production"},
+      "copy": {
+        "title": "Sir Rosevelt <span class='bold'>Sunday Finest</span>",
+        "subtitle": "A Southern Reel Production"
+      },
       "video": "219614235",
       "image": "sunday-finest.jpg"
     }
   ],
-  "about":{
-    "capabilities":["Film Production", "Photography", "Graphic Design", "Content Strategy", "Social Media"],
+  "about": {
+    "capabilities": [
+      "Film Production",
+      "Photography",
+      "Graphic Design",
+      "Content Strategy",
+      "Social Media"
+    ],
     "content": [
       {
         "title": "Film",
@@ -37,22 +76,63 @@
       }
     ]
   },
-  "team":[
-    {"name":"Zac Brown","title":"Founder"},
-    {"name":"Jeff Willard","title":"CEO"},
-    {"name":"Chad Gibson","title":"CCO"},
-    {"name":"Diego Pernia","title":"Director"},
-    {"name":"Antonio Riestra","title":"Director of Photography, ASC,&nbsp;AMC,&nbsp;AČK"},
-    {"name":"Matt Tinsley","title":"Creative Director"},
-    {"name":"Shivani Kapoor","title":"Art Director"},
-    {"name":"Morgan Hanson","title":"Senior Copywriter"},
-    {"name":"Alyssa Goodman","title":"Communications Specialist"},
-    {"name":"Jessica Robinson","title":"Digital Content Strategist"},
-    {"name":"AJ Parker","title":"Video Production Manager"},
-    {"name":"Ferris Thomas","title":"Senior Developer"},
-    {"name":"Suzanne Powell","title":"Visual Effects Supervisor"}
+  "team": [
+    {
+      "name": "Zac Brown",
+      "title": "Founder"
+    },
+    {
+      "name": "Jeff Willard",
+      "title": "CEO"
+    },
+    {
+      "name": "Chad Gibson",
+      "title": "CCO"
+    },
+    {
+      "name": "Diego Pernia",
+      "title": "Director"
+    },
+    {
+      "name": "Antonio Riestra",
+      "title": "Director of Photography, ASC,&nbsp;AMC,&nbsp;AČK"
+    },
+    {
+      "name": "Matt Tinsley",
+      "title": "Creative Director"
+    },
+    {
+      "name": "Shivani Kapoor",
+      "title": "Art Director"
+    },
+    {
+      "name": "Morgan Hanson",
+      "title": "Senior Copywriter"
+    },
+    {
+      "name": "Alyssa Goodman",
+      "title": "Communications Specialist"
+    },
+    {
+      "name": "Jessica Robinson",
+      "title": "Digital Content Strategist"
+    },
+    {
+      "name": "AJ Parker",
+      "title": "Video Production Manager"
+    },
+    {
+      "name": "Ferris Thomas",
+      "title": "Senior Developer"
+    },
+    {
+      "name": "Suzanne Powell",
+      "title": "Visual Effects Supervisor"
+    }
   ],
-  "photography":[
-    {"image": "./img/photography/sir-rosevelt.jpg"}
+  "photography": [
+    {
+      "image": "./img/photography/sir-rosevelt.jpg"
+    }
   ]
 }
