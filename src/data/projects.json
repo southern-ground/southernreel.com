@@ -26,6 +26,7 @@
   "iframeUrl": "iframe.html",
   "projects": [
     {
+      "aspectRatio": "1.78",
       "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
       "copy": {
         "title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>",
@@ -35,6 +36,7 @@
       "image": "take-your-love-away-promo.jpg"
     },
     {
+      "aspectRatio": "1.78",
       "title": "<p>Zac Brown Band</p><p class='bold'>Remedy Part I</p>",
       "copy": {
         "title": "Zac Brown Band <span class='bold'>Remedy Part I</span>",
@@ -44,6 +46,7 @@
       "image": "remedy-part-one.jpg"
     },
     {
+      "aspectRatio": "1.78",
       "title": "<p>Sir Rosevelt</p><p class='bold'>Sunday Finest</p>",
       "copy": {
         "title": "Sir Rosevelt <span class='bold'>Sunday Finest</span>",
@@ -51,6 +54,16 @@
       },
       "video": "219614235",
       "image": "sunday-finest.jpg"
+    },
+    {
+      "aspectRatio": "1.78",
+      "title": "<p>Zac Brown Band</p><p class='bold'>Tomorrow Never Comes</p>",
+      "copy": {
+        "title": "Zac Brown Band <span class='bold'>Tomorrow Never Comes</span>",
+        "subtitle": "A Southern Reel Production"
+      },
+      "video": "219896080",
+      "image": "tomorrow-never-comes.jpg"
     }
   ],
   "about": {
@@ -133,6 +146,9 @@
   "photography": [
     {
       "image": "./img/photography/sir-rosevelt.jpg"
+    },
+    {
+      "image": "./img/photography/placeholder.jpg"
     }
   ]
 }
