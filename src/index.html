@@ -143,8 +143,11 @@
                 data-index="{{loop.index}}">
                 <div class="mobile-gallery--slide__background"
                      data-background-image="../img/slides/{{project.image}}"></div>
-                <div class="mobile-gallery--slide__copy" data-url="{{project.video}}"
-                     data-title="{{project.copy.title|safe}}" data-subtitle="{{project.copy.subtitle|safe}}">
+                <div class="mobile-gallery--slide__copy"
+                     data-url="{{project.video}}"
+                     data-title="{{project.copy.title|safe}}"
+                     data-subtitle="{{project.copy.subtitle|safe}}"
+                     data-aspect-ratio="{{project.aspectRatio}}">
                     <div class="mobile-gallery--slide__description">
                         {{project.title|safe}}
                     </div>
