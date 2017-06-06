@@ -148,7 +148,7 @@
                      data-url="{{project.video}}"
                      data-title="{{project.copy.title|safe}}"
                      data-subtitle="{{project.copy.subtitle|safe}}"
-                     data-aspect-ratio="{{project.aspectRatio}}">
+                     {% if project.aspectRatio %}data-aspect-ratio="{{project.aspectRatio}}"{% endif %}>
                     <div class="mobile-gallery--slide__description">
                         {{project.title|safe}}
                     </div>
