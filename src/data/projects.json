@@ -26,7 +26,6 @@
   "iframeUrl": "iframe.html",
   "projects": [
     {
-      "aspectRatio": "1.78",
       "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
       "copy": {
         "title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>",
@@ -36,7 +35,6 @@
       "image": "take-your-love-away-promo.jpg"
     },
     {
-      "aspectRatio": "1.78",
       "title": "<p>Zac Brown Band</p><p class='bold'>Remedy Part I</p>",
       "copy": {
         "title": "Zac Brown Band <span class='bold'>Remedy Part I</span>",
@@ -46,7 +44,6 @@
       "image": "remedy-part-one.jpg"
     },
     {
-      "aspectRatio": "1.78",
       "title": "<p>Sir Rosevelt</p><p class='bold'>Sunday Finest</p>",
       "copy": {
         "title": "Sir Rosevelt <span class='bold'>Sunday Finest</span>",
@@ -56,7 +53,6 @@
       "image": "sunday-finest.jpg"
     },
     {
-      "aspectRatio": "1.78",
       "title": "<p>Zac Brown Band</p><p class='bold'>Tomorrow Never Comes</p>",
       "copy": {
         "title": "Zac Brown Band <span class='bold'>Tomorrow Never Comes</span>",
@@ -145,10 +141,40 @@
   ],
   "photography": [
     {
+      "image": "./img/photography/Bird-Nest-Edsa-EDIT-02.jpg"
+    },
+    {
+      "image": "./img/photography/Dinner-Group_011-21BB-copia.jpg"
+    },
+    {
+      "image": "./img/photography/Dinner-Zac-closeup-.jpg"
+    },
+    {
+      "image": "./img/photography/Edsa5-copia.jpg"
+    },
+    {
+      "image": "./img/photography/Redlight-2-copia.jpg"
+    },
+    {
+      "image": "./img/photography/edsa-guys.jpg"
+    },
+    {
+      "image": "./img/photography/edsa-horseshoe.jpg"
+    },
+    {
+      "image": "./img/photography/edsa2-copia-2.jpg"
+    },
+    {
+      "image": "./img/photography/niko-knife.jpg"
+    },
+    {
       "image": "./img/photography/sir-rosevelt.jpg"
     },
     {
-      "image": "./img/photography/placeholder.jpg"
+      "image": "./img/photography/stagecontent-01.jpg"
+    },
+    {
+      "image": "./img/photography/zac3F.jpg"
     }
   ]
 }
