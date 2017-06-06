@@ -13,7 +13,11 @@
             data-index="{{loop.index}}"
             style="z-index:{{loop.revindex}};opacity={% if loop.index === 1 %}1{% else %}0{% endif %}">
             <div class="slide__background" style="background-image:url(../img/slides/{{project.image}})"></div>
-            <div class="slide__copy" data-url="{{project.video}}" data-title="{{project.copy.title|safe}}" data-subtitle="{{project.copy.subtitle|safe}}">
+            <div class="slide__copy"
+                 data-url="{{project.video}}"
+                 data-title="{{project.copy.title|safe}}" data-subtitle="{{project.copy.subtitle|safe}}"
+                 data-aspect-ratio="{{project.aspectRatio}}"
+            >
                 <div class="slide__description">
                     {{project.title|safe}}
                 </div>
