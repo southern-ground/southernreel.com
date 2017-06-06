@@ -1,5 +1,7 @@
 $ochre: #F5C52C;
 $dark: #424242;
+$light: #EDEDED;
+$ink: #000000;
 
 $xl: 1034px;
 $desktop: 980px;
@@ -35,6 +37,10 @@ $xs: 480px;
 
 .hidden{
   display: none;
+}
+
+.bold{
+  font-weight: 700;
 }
 
 .clearfix:after {
