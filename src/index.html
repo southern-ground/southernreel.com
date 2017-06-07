@@ -105,7 +105,6 @@
         </ul>
     </nav>
     <nav class="headerNav">
-
         <svg id="southern-reel__hamburger" viewBox="0 0 40 40" class="headerHamburger viewControl light">
             <path id="header__close"
                   d="M37.7,4.4l-2.1-2.1L20,17.9L4.6,2.5L2.5,4.6L17.9,20L2.3,35.6l2.1,2.1L20,22.1l15.4,15.4l2.1-2.1L22.1,20"/>
@@ -159,7 +158,8 @@
         </ul>
     </section>
     <section id="Photography">
-        <!-- <h2>Photography</h2> -->
+        <h2>Photography</h2>
+        <p>Under Construction</p>
         <!--<div class="photo-carousel__container">
             <svg id="photo-carousel__next"
                  class="photo-carousel__control photo-carousel__control&#45;&#45;prev"
@@ -168,8 +168,9 @@
             </svg>
             <ul class="photo-carousel">
                 {% for photo in photography %}
-                <li class="photo-carousel__item" data-slide-to="{{loop.index0}}">
-                    <img class="photo-carousel__image" data-original="{{photo.image}}"/>
+                <li class="photo-carousel__item" data-index="{{loop.index0}}">
+                    <img class="photo-carousel__image"
+                         data-original="{{photo.image}}" />
                 </li>
                 {% endfor %}
             </ul>
