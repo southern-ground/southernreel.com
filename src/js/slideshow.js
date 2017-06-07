@@ -78,6 +78,13 @@ var sr_ss = { // Southern Reel Slide Show
             "-ms-transform": "translate(0," + textTranslateScaler + "px)",
             "transform": "translate(0," + textTranslateScaler + "px)"
         });
+
+        $('.slide').filter(function(){
+            return $(this).data('index') < d.currentSlide - 1;
+        }).css({
+            'display': 'none',
+            'opacity': 0
+        });
         // Communicate up that we've scrolled:
         if (!sr_ss.isMobile) window.parent.sr.slideShowScroll({
             top: d.top,
