@@ -110,11 +110,13 @@ var sr_ss = { // Southern Reel Slide Show
         $('.slide .slide__copy').click(function (e) {
             var url = $(this).data('url'),
                 title = $(this).data('title'),
-                subtitle = $(this).data('subtitle');
+                subtitle = $(this).data('subtitle'),
+                tracking = $(this).data('tracking-title');
             window.parent.sr.showVideo({
                 url: url,
                 title: title,
-                subtitle: subtitle
+                subtitle: subtitle,
+                tracking: tracking
             });
         });
     },
