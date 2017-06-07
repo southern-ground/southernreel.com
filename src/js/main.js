@@ -64,6 +64,7 @@ var sr = window.sr = {
         });
         sr.resizeSlideShow();
         sr.initPhotoGallery();
+        sr.initTracking();
         sr.lazyLoad = new LazyLoad();
     },
     initCrawl: function () {
@@ -92,15 +93,18 @@ var sr = window.sr = {
                 $('#southern-reel__hamburger')
                     .removeClass('headerHamburger light')
                     .addClass('headerClose dark');
+                sr.trackEvent('Hamburger Icon', 'click', 'Open');
             } else {
-                $('body').removeClass('no-scroll menu-open');
-                $('#headerMenu').slideUp();
+                $('#headerMenu').slideUp(function(){
+                    $('body').removeClass('no-scroll menu-open');
+                });
                 $('#southern-reel__logo')
                     .removeClass('dark')
                     .addClass('light');
                 $('#southern-reel__hamburger')
                     .removeClass('headerClose dark')
                     .addClass('headerHamburger light');
+                sr.trackEvent('Hamburger Icon', 'click', 'Close');
             }
         });
         $('#southern-reel__logo').click(function () {
@@ -110,9 +114,11 @@ var sr = window.sr = {
                 scrollTop: 0
             }, 500);
             sr.rewindSlideShow();
+            sr.trackEvent('Header Logo', 'click', 'Back to Top');
         });
         $('#menuClose').click(function () {
             $('#headerMenu').slideUp();
+            sr.trackEvent('Menu', 'click', 'Close');
         });
         $('#overlayClose').click(function () {
             $('#overlay').fadeOut('fast', function () {
@@ -120,6 +126,7 @@ var sr = window.sr = {
                 $('body').removeClass('no-scroll overlay-open');
                 sr.overlayOpen = false;
             });
+            sr.trackEvent('Overlay', 'click', 'Close');
         });
         $('.headerMenu__internalLink').click(function () {
             var sectionID = $(this).attr('href');
@@ -131,9 +138,12 @@ var sr = window.sr = {
                     :
                     sr.$container.removeClass('slide-show--active');
             }
-            $('#headerMenu').slideUp('fast');
+            $('#headerMenu').slideUp('fast', function(){
+                $('body').removeClass('no-scroll menu-open');
+            });
             $('#southern-reel__hamburger').removeClass('headerClose dark').addClass('headerHamburger light');
             $('#southern-reel__logo').removeClass('dark').addClass('light');
+            sr.trackEvent('Menu Link', 'click', sectionID);
             $('html, body').animate({
                 scrollTop: $(sectionID).offset().top
             }, 2000, function () {
@@ -153,11 +163,13 @@ var sr = window.sr = {
         $('.mobile-gallery--slide__copy').click(function (e) {
             var url = $(this).data('url'),
                 title = $(this).data('title'),
-                subtitle = $(this).data('subtitle');
+                subtitle = $(this).data('subtitle'),
+                tracking = $(this).data('tracking-title');
             sr.showVideo({
                 url: url,
                 title: title,
-                subtitle: subtitle
+                subtitle: subtitle,
+                tracking: tracking
             });
         });
     },
@@ -192,6 +204,19 @@ var sr = window.sr = {
 
         sr.resetPhotoGalleryInterval();
 
+    },
+    initTracking: function(){
+        // Adds some extra items to track:
+        $('[data-tracking-category]').each(function() {
+            var data = $(this).data();
+            $(this).click(function(){
+                try{
+                    sr.trackEvent(data.trackingCategory, data.trackingEvent, data.trackingLabel);
+                }catch(e){
+                    console.warn(e);
+                }
+            });
+        });
     },
     moveCrawl: function () {
         var $crawl = $('.crawl'),
@@ -270,6 +295,10 @@ var sr = window.sr = {
         $('#vimeo-player').width = videoSize.w;
         $('#vimeo-player').height = videoSize.h;
 
+        if(obj.tracking){
+            sr.trackEvent('View Video', 'play', obj.tracking);
+        }
+
         $('#overlay').fadeIn('fast');
 
         $('body').addClass('no-scroll overlay-open');
@@ -282,6 +311,18 @@ var sr = window.sr = {
         }
         if (evt.slide === evt.total) {
             sr.$container.removeClass('slide-show--active');
+        }
+    },
+    trackEvent: function (evtCategory,evtAction,evtLabel){
+        try{
+            ga('send', {
+                hitType: 'event',
+                eventCategory: evtCategory,
+                eventAction: evtAction,
+                eventLabel: evtLabel
+            });
+        }catch(e){
+            console.warn(e);
         }
     }
 };

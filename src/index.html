@@ -166,6 +166,7 @@
                      data-url="{{project.video}}"
                      data-title="{{project.copy.title|safe}}"
                      data-subtitle="{{project.copy.subtitle|safe}}"
+                     data-tracking-title="{{project.trackingTitle}}"
                      {% if project.aspectRatio %}data-aspect-ratio="{{project.aspectRatio}}"{% endif %}>
                     <div class="mobile-gallery--slide__description">
                         {{project.title|safe}}
@@ -248,27 +249,68 @@
             <h3>Southern Reel</h3>
 
             <div class="contact__email">
-                <a href="mailto:info@southernreel.com">info&copy;southernreel.com</a>
+                <a id="contact__link--email"
+                   href="mailto:info@southernreel.com"
+                   data-tracking-category="Contact Section"
+                   data-tracking-event="click"
+                   data-tracking-label="Email">info&copy;southernreel.com</a>
             </div>
+
             <address>
                 101 Gardner Parkway<br/>
                 Peachtree City, GA 30269
             </address>
 
             <div class="contact__map">
-                <a href="https://www.google.com/maps/place/101+Gardner+Park,+Peachtree+City,+GA+30269/@33.3549604,-84.5587062,17z/data=!3m1!4b1!4m5!3m4!1s0x88f4eb04f14b7f63:0xa4ee910d5b13ddbf!8m2!3d33.3549604!4d-84.5565175"
-                   target="_blank">Map</a>
+                <a id="contact__link--map"
+                   href="https://www.google.com/maps/place/101+Gardner+Park,+Peachtree+City,+GA+30269/@33.3549604,-84.5587062,17z/data=!3m1!4b1!4m5!3m4!1s0x88f4eb04f14b7f63:0xa4ee910d5b13ddbf!8m2!3d33.3549604!4d-84.5565175"
+                   target="_blank"
+                   data-tracking-category="Contact Section"
+                   data-tracking-event="click"
+                   data-tracking-label="Map">Map</a>
             </div>
 
             <div class="contact__telephone">
-                <a href="tel:404.941.3480">(404) 941-3480</a>
+                <a id="contact__link--tel"
+                   href="tel:404.941.3480"
+                   data-tracking-category="Contact Section"
+                   data-tracking-event="click"
+                   data-tracking-label="Telephone">(404) 941-3480</a>
             </div>
 
             <ul class="contact__social">
-                <li><a href="{{social.facebook}}" target="_blank" class="contact__social--facebook">Facebook</a></li>
-                <li><a href="{{social.instagram}}" target="_blank" class="contact__social--instagram">Instagram</a></li>
-                <li><a href="{{social.vimeo}}" target="_blank" class="contact__social--vimeo">Vimeo</a></li>
-                <!--<li><a href="{{social.twitter}}" target="_blank" class="contact__social&#45;&#45;twitter">Twitter</a></li>-->
+                <li><a id="contact__link--facebook"
+                       href="{{social.platformUrls.facebook}}"
+                       target="_blank"
+                       class="contact__social--facebook"
+                       data-tracking-category="Contact Section"
+                       data-tracking-event="click"
+                       data-tracking-label="Facebook">Facebook</a></li>
+                <li><a id="contact__link--instagram"
+                       href="{{social.platformUrls.instagram}}"
+                       target="_blank"
+                       class="contact__social--instagram"
+                       data-tracking-category="Contact Section"
+                       data-tracking-event="click"
+                       data-tracking-label="Instagram">Instagram</a></li>
+                <li><a id="contact__link--vimeo"
+                       href="{{social.platformUrls.vimeo}}"
+                       target="_blank"
+                       class="contact__social--vimeo"
+                       data-tracking-category="Contact Section"
+                       data-tracking-event="click"
+                       data-tracking-label="Vimeo">Vimeo</a></li>
+                <!--
+                <li>
+                    <a id="contact__link--twitter"
+                       href="{{social.platformUrls.twitter}}"
+                       target="_blank"
+                       class="contact__social--twitter"
+                       data-tracking-category="Contact Section"
+                       data-tracking-event="click"
+                       data-tracking-label="Twitter">Twitter</a>
+                </li>
+                -->
             </ul>
         </div>
     </section>

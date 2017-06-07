@@ -15,7 +15,9 @@
             <div class="slide__background" style="background-image:url(../img/slides/{{project.image}})"></div>
             <div class="slide__copy"
                  data-url="{{project.video}}"
-                 data-title="{{project.copy.title|safe}}" data-subtitle="{{project.copy.subtitle|safe}}"
+                 data-title="{{project.copy.title|safe}}"
+                 data-subtitle="{{project.copy.subtitle|safe}}"
+                 data-tracking-title="{{project.trackingTitle}}"
                  {% if project.aspectRatio %}data-aspect-ratio="{{project.aspectRatio}}"{% endif %}>
                 <div class="slide__description">
                     {{project.title|safe}}
