@@ -35,10 +35,10 @@ var manageEnvironment = function(environment) {
             s4() + '-' + s4() + s4() + s4();
     });
     environment.addGlobal('gitRev', function(){
-        return "*** Revision Information ***\n"+
-            "\tCommit: " + gitRev.long() + "\n" +
-            "\tDate: " + gitRev.date() + "\n" +
-            "\tMessage: " + gitRev.message();
+        return "\n\t\t*** Revision Information ***\n"+
+            "\t\tCommit: " + gitRev.long() + "\n" +
+            "\t\tDate: " + gitRev.date() + "\n" +
+            "\t\tMessage: " + gitRev.message() + "\n\t\t";
     });
 };
 
@@ -134,8 +134,6 @@ gulp.task('copy', function (done) {
 
 gulp.task('sass', function () {
 
-    console.log('gulp::sass', env);
-
     var options = {
         outputStyle: 'compressed'
     };
@@ -192,8 +190,6 @@ gulp.task('serve', function () {
 
 gulp.task('build', function (done) {
 
-    console.log('gulp::build');
-
     // Clean up the distribution directory:
     del([
         dirs.dist + "/**/*.html",
@@ -209,8 +205,6 @@ gulp.task('build', function (done) {
 });
 
 gulp.task('default', function (done) {
-
-    console.log('gulp::default');
 
     runSequence(['build'], ['serve'], done);
 
