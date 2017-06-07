@@ -1,85 +1,4 @@
 {
-  "sections": [
-    {
-      "text": "Video"
-    },
-    {
-      "text": "Photography"
-    },
-    {
-      "text": "About"
-    },
-    {
-      "text": "Our Team",
-      "target": "OurTeam"
-    },
-    {
-      "text": "Contact"
-    }
-  ],
-  "social": {
-    "facebook": "https://www.facebook.com/SouthernReel/",
-    "instagram": "https://www.instagram.com/southernreel/",
-    "twitter": "https://twitter.com/SouthernReel",
-    "vimeo": "https://vimeo.com/southernreel"
-  },
-  "iframeUrl": "iframe.html",
-  "projects": [
-    {
-      "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
-      "copy": {
-        "title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>",
-        "subtitle": "A Southern Reel Production"
-      },
-      "video": "207580033",
-      "image": "take-your-love-away-promo.jpg"
-    },
-    {
-      "title": "<p>Zac Brown Band</p><p class='bold'>Remedy Part I</p>",
-      "copy": {
-        "title": "Zac Brown Band <span class='bold'>Remedy Part I</span>",
-        "subtitle": "A Southern Reel Production"
-      },
-      "video": "219780777",
-      "image": "remedy-part-one.jpg"
-    },
-    {
-      "title": "<p>Sir Rosevelt</p><p class='bold'>Sunday Finest</p>",
-      "copy": {
-        "title": "Sir Rosevelt <span class='bold'>Sunday Finest</span>",
-        "subtitle": "A Southern Reel Production"
-      },
-      "video": "219614235",
-      "image": "sunday-finest.jpg"
-    },
-    {
-      "title": "<p>Zac Brown Band</p><p class='bold'>Tomorrow Never Comes</p>",
-      "copy": {
-        "title": "Zac Brown Band <span class='bold'>Tomorrow Never Comes</span>",
-        "subtitle": "A Southern Reel Production"
-      },
-      "video": "219896080",
-      "image": "tomorrow-never-comes.jpg"
-    },
-    {
-      "title": "<p>Mazda</p><p class='bold'>Souls</p>",
-      "copy": {
-        "title": "Mazda <span class='bold'>Souls</span>",
-        "subtitle": ""
-      },
-      "video": "220407100",
-      "image": "mazda.png"
-    },
-    {
-      "title": "<p>Peujot Avenue</p><p class='bold'>Beijing</p>",
-      "copy": {
-        "title": "Peujot Avenue <span class='bold'>Beijing</span>",
-        "subtitle": ""
-      },
-      "video": "220413524",
-      "image": "peugot-beijing.png"
-    }
-  ],
   "about": {
     "capabilities": [
       "Film Production",
@@ -107,6 +26,134 @@
         "copy": "<p>Content is just the beginning. Together with our design and film teams, we define how to engage with audiences through effective editorial strategy, curation and content creation.</p>"
       }
     ]
+  },
+  "iframeUrl": "iframe.html",
+  "photography": [
+    {
+      "image": "./img/photography/Bird-Nest-Edsa-EDIT-02.jpg"
+    },
+    {
+      "image": "./img/photography/Dinner-Group_011-21BB-copia.jpg"
+    },
+    {
+      "image": "./img/photography/Dinner-Zac-closeup-.jpg"
+    },
+    {
+      "image": "./img/photography/Edsa5-copia.jpg"
+    },
+    {
+      "image": "./img/photography/Redlight-2-copia.jpg"
+    },
+    {
+      "image": "./img/photography/edsa-guys.jpg"
+    },
+    {
+      "image": "./img/photography/edsa-horseshoe.jpg"
+    },
+    {
+      "image": "./img/photography/edsa2-copia-2.jpg"
+    },
+    {
+      "image": "./img/photography/niko-knife.jpg"
+    },
+    {
+      "image": "./img/photography/sir-rosevelt.jpg"
+    },
+    {
+      "image": "./img/photography/stagecontent-01.jpg"
+    },
+    {
+      "image": "./img/photography/zac3F.jpg"
+    }
+  ],
+  "projects": [
+    {
+      "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
+      "copy": {
+        "title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>",
+        "subtitle": "A Southern Reel Production"
+      },
+      "video": "207580033",
+      "image": "take-your-love-away-promo.jpg",
+      "trackingTitle": "Take Your Love Away Promo"
+    },
+    {
+      "title": "<p>Zac Brown Band</p><p class='bold'>Remedy Part I</p>",
+      "copy": {
+        "title": "Zac Brown Band <span class='bold'>Remedy Part I</span>",
+        "subtitle": "A Southern Reel Production"
+      },
+      "video": "219780777",
+      "image": "remedy-part-one.jpg",
+      "trackingTitle": "Remedy Part I"
+    },
+    {
+      "title": "<p>Sir Rosevelt</p><p class='bold'>Sunday Finest</p>",
+      "copy": {
+        "title": "Sir Rosevelt <span class='bold'>Sunday Finest</span>",
+        "subtitle": "A Southern Reel Production"
+      },
+      "video": "219614235",
+      "image": "sunday-finest.jpg",
+      "trackingTitle": "Sunday Finest"
+    },
+    {
+      "title": "<p>Zac Brown Band</p><p class='bold'>Tomorrow Never Comes</p>",
+      "copy": {
+        "title": "Zac Brown Band <span class='bold'>Tomorrow Never Comes</span>",
+        "subtitle": "A Southern Reel Production"
+      },
+      "video": "219896080",
+      "image": "tomorrow-never-comes.jpg",
+      "trackingTitle": "Tomorrow Never Comes"
+    },
+    {
+      "title": "<p>Mazda</p><p class='bold'>Souls</p>",
+      "copy": {
+        "title": "Mazda <span class='bold'>Souls</span>",
+        "subtitle": ""
+      },
+      "video": "220407100",
+      "image": "mazda.png",
+      "trackingTitle": "Mazda Souls"
+    },
+    {
+      "title": "<p>Peugeot Avenue - Beijing</p>",
+      "copy": {
+        "title": "Peujot Avenue <span class='bold'>Beijing</span>",
+        "subtitle": ""
+      },
+      "video": "220413524",
+      "image": "peugot-beijing.png",
+      "trackingTitle": "Peugeot Avenue - Beijing"
+    }
+  ],
+  "sections": [
+    {
+      "text": "Video"
+    },
+    {
+      "text": "Photography"
+    },
+    {
+      "text": "About"
+    },
+    {
+      "text": "Our Team",
+      "target": "OurTeam"
+    },
+    {
+      "text": "Contact"
+    }
+  ],
+  "social": {
+    "socialMediaImage": "http://southernreel.com/img/social/southernreel-social-share.jpg",
+    "platformUrls":{
+      "facebook": "https://www.facebook.com/SouthernReel/",
+      "instagram": "https://www.instagram.com/southernreel/",
+      "twitter": "https://twitter.com/SouthernReel",
+      "vimeo": "https://vimeo.com/southernreel"
+    }
   },
   "team": [
     {
@@ -162,42 +209,7 @@
       "title": "Visual Effects Supervisor"
     }
   ],
-  "photography": [
-    {
-      "image": "./img/photography/Bird-Nest-Edsa-EDIT-02.jpg"
-    },
-    {
-      "image": "./img/photography/Dinner-Group_011-21BB-copia.jpg"
-    },
-    {
-      "image": "./img/photography/Dinner-Zac-closeup-.jpg"
-    },
-    {
-      "image": "./img/photography/Edsa5-copia.jpg"
-    },
-    {
-      "image": "./img/photography/Redlight-2-copia.jpg"
-    },
-    {
-      "image": "./img/photography/edsa-guys.jpg"
-    },
-    {
-      "image": "./img/photography/edsa-horseshoe.jpg"
-    },
-    {
-      "image": "./img/photography/edsa2-copia-2.jpg"
-    },
-    {
-      "image": "./img/photography/niko-knife.jpg"
-    },
-    {
-      "image": "./img/photography/sir-rosevelt.jpg"
-    },
-    {
-      "image": "./img/photography/stagecontent-01.jpg"
-    },
-    {
-      "image": "./img/photography/zac3F.jpg"
-    }
-  ]
+  "tracking":{
+    "googleUA": "UA-54746522-10"
+  }
 }
