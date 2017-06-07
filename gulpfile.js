@@ -126,7 +126,8 @@ gulp.task('serve', function () {
             dirs.src + "/**/*.html",
             dirs.src + "/**/*.js",
             dirs.src + "/sass/**/*.scss",
-            dirs.src + "/img/*.*"],
+            dirs.src + "/img/*.*",
+            dirs.src + "/data/**/*.json"],
         function () {
             runSequence(['build'],
                 browserSync.reload);
