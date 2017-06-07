@@ -88,17 +88,39 @@
             <li>
                 <ul class="headerMenu__social">
                     <li>
-                        <a href="{{social.facebook}}"
+                        <a href="{{social.platformUrls.facebook}}"
                            target="_blank"
-                           class="headerMenu__social--facebook">Facebook</a>
+                           class="headerMenu__social--facebook"
+                           data-tracking-category="Top Menu"
+                           data-tracking-event="click"
+                           data-tracking-label="Facebook">Facebook</a>
                     </li>
                     <li>
-                        <a href="{{social.instagram}}"
+                        <a href="{{social.platformUrls.instagram}}"
                            target="_blank"
-                           class="headerMenu__social--instagram">Instagram</a>
+                           class="headerMenu__social--instagram"
+                           data-tracking-category="Top Menu"
+                           data-tracking-event="click"
+                           data-tracking-label="Instagram">Instagram</a>
                     </li>
-                    <li><a href="{{social.vimeo}}" target="_blank" class="headerMenu__social--vimeo">Vimeo</a></li>
-                    <!--<li><a href="{{social.twitter}}" target="_blank" class="headerMenu__social&#45;&#45;twitter">Twitter</a></li>-->
+                    <li>
+                        <a href="{{social.platformUrls.vimeo}}"
+                           target="_blank"
+                           class="headerMenu__social--vimeo"
+                           data-tracking-category="Top Menu"
+                           data-tracking-event="click"
+                           data-tracking-label="Vimeo">Vimeo</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a href="{{social.platformUrls.twitter}}"
+                           target="_blank"
+                           class="headerMenu__social--twitter"
+                           data-tracking-category="Top Menu"
+                           data-tracking-event="click"
+                           data-tracking-label="Twitter">Twitter</a>
+                    </li>
+                    -->
                 </ul>
             </li>
         </ul>
