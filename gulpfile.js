@@ -20,49 +20,61 @@ var gulp = require('gulp'),
  *
  */
 
-gulp.task('copy:docs', function(done){
+var manageEnvironment = function(environment) {
+    environment.addGlobal('guid', function(){
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            s4() + '-' + s4() + s4() + s4();
+    });
+};
+
+gulp.task('copy:docs', function (done) {
     return gulp.src([dirs.src + "/docs/**/*.*"], {
         dot: false
     })
         .pipe(gulp.dest(dirs.dist + "/docs/"));
 });
 
-gulp.task('copy:images', function(done){
+gulp.task('copy:images', function (done) {
     return gulp.src([dirs.src + "/img/**/*.*"], {
         dot: false
     })
         .pipe(gulp.dest(dirs.dist + "/img/"));
 });
 
-gulp.task('copy:js', function(done){
+gulp.task('copy:js', function (done) {
     return gulp.src([dirs.src + "/js/**/*.js"], {
         dot: false
     })
         .pipe(gulp.dest(dirs.dist + "/js/"));
 });
 
-gulp.task('copy:fonts', function(done){
+gulp.task('copy:fonts', function (done) {
     return gulp.src([dirs.src + "/fonts/**/*.*"], {
         dot: false
     })
         .pipe(gulp.dest(dirs.dist + "/fonts/"));
 });
 
-gulp.task('copy:cssFonts', function(done){
+gulp.task('copy:cssFonts', function (done) {
     return gulp.src([dirs.src + "/css/fonts/**/*.*"], {
         dot: false
     })
         .pipe(gulp.dest(dirs.dist + "/css/fonts/"));
 });
 
-gulp.task('copy:video', function(done){
+gulp.task('copy:video', function (done) {
     return gulp.src([dirs.src + "/video/**/*.*", "!" + dirs.src + "/video/src/*.*"], {
         dot: false
     })
         .pipe(gulp.dest(dirs.dist + "/video/"));
 });
 
-gulp.task('copy', function(done){
+gulp.task('copy', function (done) {
     runSequence([
         'copy:images',
         'copy:js',
@@ -102,7 +114,7 @@ gulp.task('render', function () {
         .pipe(data(function () {
             return _.extend(config, {env: env}, projects);
         }))
-        .pipe(render())
+        .pipe(render({manageEnv: manageEnvironment}))
         .pipe(gulp.dest(dirs.dist));
 });
 
