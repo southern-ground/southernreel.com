@@ -24,9 +24,6 @@ html {
     &.below-the-fold {
       #southern-reel__hamburger, #southern-reel__logo {
         fill: black;
-        &:hover {
-          // fill: red;
-        }
       }
     }
     div#content {
@@ -418,6 +415,12 @@ html {
 
 
 
+      }
+    }
+    #Error{
+      a{
+        font-weight: 700;
+        color: $ink;
       }
     }
     div#overlay {
