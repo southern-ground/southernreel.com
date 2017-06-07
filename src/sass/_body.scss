@@ -106,14 +106,21 @@ html {
         padding: 0;
         margin: 0;
         list-style: none;
-
+        height: calc(100vh - 150px);
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
         li.photo-carousel__item{
-
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-content:center;
+          align-items:center;
           .photo-carousel__image{
-
+            height: calc(100vh - 150px);
+            width: auto;
           }
         }
-
         &__container{
           display: flex;
           flex-direction: row;
