@@ -1,6 +1,7 @@
 var sr = window.sr = {
     _: window._,
     CRAW_INTERVAL: 2500,
+    PHOTO_GALLERY_INTERVAL: 7500,
     crawlInterval: null,
     isMobile: null,
     $container: null,
@@ -8,6 +9,7 @@ var sr = window.sr = {
     foldHeight: 0,
     lazyLoad: null,
     overlayOpen: false,
+    photoGalleryInterval: null,
     sliderInstance: null,
     checkFold: function () {
         var $w = $(window),
@@ -168,6 +170,7 @@ var sr = window.sr = {
                 id = 0;
             }
             $('.photo-carousel__item[data-index='+id+']').addClass('active');
+            sr.resetPhotoGalleryInterval();
         });
         $('#photo-carousel__prev').click(function () {
             var id = $('.photo-carousel__item.active').data('index');
@@ -177,7 +180,18 @@ var sr = window.sr = {
                 id = $('.photo-carousel__item').length - 1;
             }
             $('.photo-carousel__item[data-index='+id+']').addClass('active');
+            sr.resetPhotoGalleryInterval();
         });
+
+        $('.photo-carousel__item').each(function(){
+            var $el = $(this);
+            $el.css({
+                'background-image': 'url('+$el.data('image')+')'
+            })
+        });
+
+        sr.resetPhotoGalleryInterval();
+
     },
     moveCrawl: function () {
         var $crawl = $('.crawl'),
@@ -200,6 +214,12 @@ var sr = window.sr = {
         newLeft += newWidth * 0.5;
         $('.crawl').animate({'margin-left': -newLeft}, 'slow');
         $crawl.data('index', newIndex);
+    },
+    resetPhotoGalleryInterval: function(){
+        clearInterval(sr.photoGalleryInterval);
+        sr.photoGalleryInterval = setInterval(function(){
+            $('#photo-carousel__next').click();
+        }, sr.PHOTO_GALLERY_INTERVAL);
     },
     resizeSlideShow: function () {
         sr.isMobile
