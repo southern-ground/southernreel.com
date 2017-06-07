@@ -8,6 +8,7 @@ var _ = require('underscore'),
     del = require('del'),
     dirs = config.directories,
     env = args.env || "dev",
+    gitRev = require('git-rev-sync'),
     htmlMin = require('gulp-html-minifier'),
     print = require('gulp-print'),
     pump = require('pump'),
@@ -32,6 +33,12 @@ var manageEnvironment = function(environment) {
         }
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
+    });
+    environment.addGlobal('gitRev', function(){
+        return "*** Revision Information ***\n"+
+            "\tCommit: " + gitRev.long() + "\n" +
+            "\tDate: " + gitRev.date() + "\n" +
+            "\tMessage: " + gitRev.message();
     });
 };
 

@@ -30,6 +30,7 @@
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "del": "^2.2.2",
+    "git-rev-sync": "^1.9.1",
     "gulp": "^3.9.1",
     "gulp-data": "^1.2.1",
     "gulp-html-minifier": "^0.1.8",
