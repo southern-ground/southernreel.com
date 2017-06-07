@@ -158,28 +158,26 @@
         </ul>
     </section>
     <section id="Photography">
-        <h2>Photography</h2>
-        <p>Under Construction</p>
-        <!--<div class="photo-carousel__container">
-            <svg id="photo-carousel__next"
-                 class="photo-carousel__control photo-carousel__control&#45;&#45;prev"
+        <div class="photo-carousel__container">
+            <svg id="photo-carousel__prev"
+                 class="photo-carousel__control photo-carousel__control--prev"
                  viewBox="0 0 30 50">
                 <polygon points="0,3 3.3,0 30,25 3.3,50 0,47 23.4,25 "/>
             </svg>
             <ul class="photo-carousel">
                 {% for photo in photography %}
-                <li class="photo-carousel__item" data-index="{{loop.index0}}">
+                <li class="photo-carousel__item{% if loop.index === 1 %} active{% endif %}" data-index="{{loop.index0}}">
                     <img class="photo-carousel__image"
                          data-original="{{photo.image}}" />
                 </li>
                 {% endfor %}
             </ul>
             <svg id="photo-carousel__next"
-                 class="photo-carousel__control photo-carousel__control&#45;&#45;next"
+                 class="photo-carousel__control photo-carousel__control--next"
                  viewBox="0 0 30 50">
                 <polygon points="0,3 3.3,0 30,25 3.3,50 0,47 23.4,25 "/>
             </svg>
-        </div>-->
+        </div>
     </section>
     <section id="About">
         <h2>About Us</h2>

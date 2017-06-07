@@ -107,17 +107,23 @@ html {
         margin: 0;
         list-style: none;
         height: calc(100vh - 150px);
-        display: flex;
-        flex-direction: row;
-        justify-content:flex-start;
+        width: 80vw;
+        position: relative;
         li.photo-carousel__item{
           display: flex;
-          flex-direction: row;
           justify-content: center;
-          align-content:center;
-          align-items:center;
+          height: calc(100vh - 150px);
+          width: auto;
+          opacity: 0;
+          -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+          transition: opacity 0.5s, transform 0.5s;
+          &.active{
+            opacity: 1;
+          }
           .photo-carousel__image{
-            height: calc(100vh - 150px);
+            position: absolute;
+            top: 0;
+            height: 100%;
             width: auto;
           }
         }

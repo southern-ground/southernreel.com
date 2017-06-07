@@ -160,12 +160,23 @@ var sr = window.sr = {
         });
     },
     initPhotoGallery: function () {
-        $('.photo-carousel__image').each(function () {
-            $(this).on('load', function () {
-                var $image = $(this);
-                $(this).parent().attr('data-image-width', $image.width());
-                sr.updatePhotoGallery();
-            });
+        $('#photo-carousel__next').click(function () {
+            var id = $('.photo-carousel__item.active').data('index');
+            $('.photo-carousel__item').removeClass('active');
+            id++;
+            if(id >= $('.photo-carousel__item').length-1){
+                id = 0;
+            }
+            $('.photo-carousel__item[data-index='+id+']').addClass('active');
+        });
+        $('#photo-carousel__prev').click(function () {
+            var id = $('.photo-carousel__item.active').data('index');
+            $('.photo-carousel__item').removeClass('active');
+            id--;
+            if(id < 0){
+                id = $('.photo-carousel__item').length - 1;
+            }
+            $('.photo-carousel__item[data-index='+id+']').addClass('active');
         });
     },
     moveCrawl: function () {
@@ -251,31 +262,6 @@ var sr = window.sr = {
         }
         if (evt.slide === evt.total) {
             sr.$container.removeClass('slide-show--active');
-        }
-    },
-    updatePhotoGallery: function () {
-        var $photos = $('.photo-carousel__item'),
-            totalPhotos = $photos.length,
-            leftMargin = 0,
-            photosLoaded = $('.photo-carousel__item[data-image-width]').length;
-
-        if (photosLoaded === totalPhotos) {
-            $('.photo-carousel__item').each(function (index, el) {
-                $el = $(el);
-                if (!$el.data('image-width')) {
-                    return;
-                }
-                if ($el.data('image-width')) {
-                    if ($el.data('index') === 0) {
-                        leftMargin += $el.data('image-width') * 0.5;
-                    } else {
-                        leftMargin += $el.data('image-width');
-                    }
-                }
-            });
-            $('.photo-carousel').css({
-                'margin-left': leftMargin
-            });
         }
     }
 };
