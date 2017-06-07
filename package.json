@@ -32,9 +32,12 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-data": "^1.2.1",
+    "gulp-html-minifier": "^0.1.8",
     "gulp-nunjucks-render": "^2.2.1",
     "gulp-print": "^2.0.1",
     "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2",
     "run-sequence": "^1.2.2",
     "yargs": "^8.0.1"
   },

@@ -1,18 +1,21 @@
-var gulp = require('gulp'),
+var _ = require('underscore'),
+    gulp = require('gulp'),
     pkg = require('./package.json'),
     config = pkg['config'],
     args = require('yargs').argv,
-    env = args.env || "dev",
+    browserSync = require('browser-sync'),
     data = require('gulp-data'),
-    dirs = config.directories,
-    projects = require(config.projects),
     del = require('del'),
-    runSequence = require('run-sequence'),
+    dirs = config.directories,
+    env = args.env || "dev",
+    htmlMin = require('gulp-html-minifier'),
     print = require('gulp-print'),
+    pump = require('pump'),
+    projects = require(config.projects),
     render = require('gulp-nunjucks-render'),
+    runSequence = require('run-sequence'),
     sass = require('gulp-sass'),
-    _ = require('underscore'),
-    browserSync = require('browser-sync');
+    uglify = require('gulp-uglify');
 
 /*
  *
@@ -39,6 +42,35 @@ gulp.task('copy:docs', function (done) {
         .pipe(gulp.dest(dirs.dist + "/docs/"));
 });
 
+gulp.task('compress:js', function (done) {
+    var options = {
+        compress: {
+            passes: 2,
+            comparisons: true,
+            evaluate: true,
+            booleans: true,
+            toplevel: true,
+            if_return: true
+        },
+        mangle:{
+            toplevel: true
+        },
+        output: {
+            beautify: false,
+            preamble: "/* Southern Reel @2017 */"
+        }
+    };
+    pump([
+            gulp.src([dirs.src + "/js/**/*.js", '!'+dirs.src + '/js/vendor/**/*.*'], {
+                dot: false
+            }),
+            uglify(options),
+            gulp.dest(dirs.dist + "/js/")
+        ],
+        done
+    );
+});
+
 gulp.task('copy:images', function (done) {
     return gulp.src([dirs.src + "/img/**/*.*"], {
         dot: false
@@ -51,6 +83,13 @@ gulp.task('copy:js', function (done) {
         dot: false
     })
         .pipe(gulp.dest(dirs.dist + "/js/"));
+});
+
+gulp.task('copy:jsVendor', function (done) {
+    return gulp.src([dirs.src + "/js/vendor/**/*.js"], {
+        dot: false
+    })
+        .pipe(gulp.dest(dirs.dist + "/js/vendor/"));
 });
 
 gulp.task('copy:fonts', function (done) {
@@ -77,7 +116,8 @@ gulp.task('copy:video', function (done) {
 gulp.task('copy', function (done) {
     runSequence([
         'copy:images',
-        'copy:js',
+        'compress:js',
+        'copy:jsVendor',
         'copy:fonts',
         'copy:cssFonts',
         'copy:docs',
@@ -89,9 +129,9 @@ gulp.task('sass', function () {
 
     console.log('gulp::sass', env);
 
-    var options = env === 'prod' ? {
+    var options = {
         outputStyle: 'compressed'
-    } : {};
+    };
 
     return gulp.src([
         dirs.src + '/sass/**/*.scss',
@@ -115,6 +155,7 @@ gulp.task('render', function () {
             return _.extend(config, {env: env}, projects);
         }))
         .pipe(render({manageEnv: manageEnvironment}))
+        .pipe(htmlMin({collapseWhitespace: true}))
         .pipe(gulp.dest(dirs.dist));
 });
 
