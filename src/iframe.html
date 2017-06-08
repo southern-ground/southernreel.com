@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Southern Reel Gallery iFrame</title>
 </head>
-<link rel="stylesheet" href="css/main.css" />
-<body>
+<link rel="stylesheet" href="css/main.css?id={{guid()}}" />
+<body class="gallery">
 <div id="slideShowWrapper">
     <ul class="slide-show">
         {% for project in projects %}
@@ -29,6 +29,6 @@
     </ul>
 </div>
 <script src="js/vendor/jquery.min.js"></script>
-<script src="js/slideshow.js"></script>
+<script src="js/slideshow.js?id={{guid}}"></script>
 </body>
 </html>

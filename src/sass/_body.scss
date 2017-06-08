@@ -26,6 +26,10 @@ html {
         fill: black;
       }
     }
+    &.gallery{
+      width: 100%;
+      overflow-x: hidden;
+    }
     div#content {
       position: relative;
       section {
