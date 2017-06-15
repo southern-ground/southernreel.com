@@ -43,16 +43,16 @@ var sr_ss = { // Southern Reel Slide Show
         $(window).resize(function () {
             sr_ss.resizeSlider();
         });
-    },
-    continueScroll: function () {
-        if (sr_ss.scrollDirection === 1) {
-            if (sr_ss.currentSlide < sr_ss.slideCount) {
-                // Go to next:
-                $("html, body").animate({scrollTop: sr_ss.currentSlide * sr_ss.winHeight}, "fast");
-            }
-        } else {
-            $("html, body").animate({scrollTop: (sr_ss.currentSlide - 1) * sr_ss.winHeight}, "fast");
-        }
+
+        var $firstSlide = $('li.slide[data-index=1]').find('.slide__background');
+
+        $('<img/>')
+            .attr('src', $firstSlide.data('background'))
+            .on('load', function () {
+                $(this).remove();
+                sr_ss.showSlides();
+            });
+
     },
     first: function () {
         $("html, body").animate({scrollTop: 0}, "fast");
@@ -79,7 +79,7 @@ var sr_ss = { // Southern Reel Slide Show
             "transform": "translate(0," + textTranslateScaler + "px)"
         });
 
-        $('.slide').filter(function(){
+        $('.slide').filter(function () {
             return $(this).data('index') < d.currentSlide - 1;
         }).css({
             'display': 'none',
@@ -140,10 +140,10 @@ var sr_ss = { // Southern Reel Slide Show
         sr_ss.winWidth = $(window).innerWidth();
         sr_ss.$container.css('min-height', sr_ss.slideCount * sr_ss.winHeight);
     },
-    rewind: function(){
+    rewind: function () {
         $('body, html').animate({
             'scrollTop': 0
-        }, 'fast', function(){
+        }, 'fast', function () {
             // Callback;
         });
     },
@@ -161,8 +161,30 @@ var sr_ss = { // Southern Reel Slide Show
             delta: ((cs * wh) - t) / wh
         }
     },
-    setBeacon: function(){
+    setBeacon: function () {
         window.parent.sr.setSliderReference(sr_ss);
+    },
+    showSlides: function () {
+        var $el;
+        $('.slide__background').each(function () {
+            $el = $(this);
+            $el.css({
+                'background-image': 'url(' + $el.data('background') + ')'
+            })
+                .removeClass('hidden')
+                .fadeIn();
+        });
+        $('.slide__copy').each(function () {
+            $el = $(this);
+            $el.removeClass('hidden');
+            if ($el.parent().data('index') === 1) {
+                $el
+                    .css({
+                        'opacity': 0
+                    })
+                    .animate({'opacity': 1}, 1500, "linear")
+            }
+        });
     }
 };
 sr_ss.init();
