@@ -173,20 +173,12 @@
       "title": "Director"
     },
     {
-      "name": "Antonio Riestra",
-      "title": "Director of Photography, ASC,&nbsp;AMC,&nbsp;AČK"
-    },
-    {
       "name": "Matt Tinsley",
       "title": "Creative Director"
     },
     {
       "name": "Shivani Kapoor",
       "title": "Art Director"
-    },
-    {
-      "name": "Morgan Hanson",
-      "title": "Senior Copywriter"
     },
     {
       "name": "Alyssa Goodman",
@@ -201,12 +193,40 @@
       "title": "Video Production Manager"
     },
     {
+      "name": "Andy Sapp",
+      "tile": "Photographer"
+    },
+    {
+      "name": "Jamie Sapp",
+      "title": "Editor & Camera Operator"
+    },
+    {
       "name": "Ferris Thomas",
       "title": "Senior Developer"
     },
     {
       "name": "Suzanne Powell",
       "title": "Visual Effects Supervisor"
+    },
+    {
+      "name": "Kayla Griffin",
+      "title": "Designer"
+    },
+    {
+      "name": "Cat Buchanan",
+      "title": "Junior Designer"
+    },
+    {
+      "name": "Alanna Gardner",
+      "title": "Communications Coordinator"
+    },
+    {
+      "name": "Alex Chapman",
+      "title": "Photographer & Video Assistant"
+    },
+    {
+      "name": "Lauren Lee",
+      "title": "Traffic Manager"
     }
   ],
   "tracking":{
