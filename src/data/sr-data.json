@@ -34,40 +34,40 @@
   "iframeUrl": "iframe.html",
   "photography": [
     {
-      "image": "./img/photography/Bird-Nest-Edsa-EDIT-02.jpg"
+      "image": "/img/photography/Bird-Nest-Edsa-EDIT-02.jpg"
     },
     {
-      "image": "./img/photography/Dinner-Group_011-21BB-copia.jpg"
+      "image": "/img/photography/Dinner-Group_011-21BB-copia.jpg"
     },
     {
-      "image": "./img/photography/Dinner-Zac-closeup-.jpg"
+      "image": "/img/photography/Dinner-Zac-closeup-.jpg"
     },
     {
-      "image": "./img/photography/Edsa5-copia.jpg"
+      "image": "/img/photography/Edsa5-copia.jpg"
     },
     {
-      "image": "./img/photography/Redlight-2-copia.jpg"
+      "image": "/img/photography/Redlight-2-copia.jpg"
     },
     {
-      "image": "./img/photography/edsa-guys.jpg"
+      "image": "/img/photography/edsa-guys.jpg"
     },
     {
-      "image": "./img/photography/edsa-horseshoe.jpg"
+      "image": "/img/photography/edsa-horseshoe.jpg"
     },
     {
-      "image": "./img/photography/edsa2-copia-2.jpg"
+      "image": "/img/photography/edsa2-copia-2.jpg"
     },
     {
-      "image": "./img/photography/niko-knife.jpg"
+      "image": "/img/photography/niko-knife.jpg"
     },
     {
-      "image": "./img/photography/sir-rosevelt.jpg"
+      "image": "/img/photography/sir-rosevelt.jpg"
     },
     {
-      "image": "./img/photography/stagecontent-01.jpg"
+      "image": "/img/photography/stagecontent-01.jpg"
     },
     {
-      "image": "./img/photography/zac3F.jpg"
+      "image": "/img/photography/zac3F.jpg"
     }
   ],
   "projects": [

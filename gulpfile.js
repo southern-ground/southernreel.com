@@ -40,6 +40,14 @@ var manageEnvironment = function(environment) {
             "\t\tDate: " + gitRev.date() + "\n" +
             "\t\tMessage: " + gitRev.message() + "\n\t\t";
     });
+    environment.addGlobal('localizedCdn', function(){
+        if(env==="stage"){
+            return projects.cdn.stage;
+        }else if(env === "prod"){
+            return projects.cdn.prod;
+        }
+        return "";
+    });
 };
 
 gulp.task('copy:docs', function (done) {
