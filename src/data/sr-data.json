@@ -1,4 +1,8 @@
 {
+  "cdn": {
+    "prod": "http://southernreel.com.s3-website-us-east-1.amazonaws.com",
+    "stage": "http://stage.southernreel.com.s3-website-us-east-1.amazonaws.com"
+  },
   "about": {
     "capabilities": [
       "Film Production",
@@ -148,7 +152,7 @@
   ],
   "social": {
     "socialMediaImage": "http://southernreel.com/img/social/southernreel-social-share.jpg",
-    "platformUrls":{
+    "platformUrls": {
       "facebook": "https://www.facebook.com/SouthernReel/",
       "instagram": "https://www.instagram.com/southernreel/",
       "twitter": "https://twitter.com/SouthernReel",
@@ -229,7 +233,7 @@
       "title": "Traffic Manager"
     }
   ],
-  "tracking":{
+  "tracking": {
     "googleUA": "UA-54746522-10"
   }
 }
