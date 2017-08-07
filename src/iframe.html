@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Southern Reel Gallery iFrame</title>
 </head>
-<link rel="stylesheet" href="css/main.css?id={{guid()}}" />
+<link rel="stylesheet" href="{{localizedCdn()}}/css/main.css?id={{guid()}}" />
 <body class="gallery">
 <div id="slideShowWrapper">
     <ul class="slide-show">
@@ -12,7 +12,7 @@
         <li class="slide"
             data-index="{{loop.index}}"
             style="z-index:{{loop.revindex}};opacity={% if loop.index === 1 %}1{% else %}0{% endif %}">
-            <div class="slide__background hidden" data-background="../img/slides/{{project.image}}"></div>
+            <div class="slide__background hidden" data-background="{{localizedCdn()}}/img/slides/{{project.image}}"></div>
             <div class="slide__copy hidden"
                  data-url="{{project.video}}"
                  data-title="{{project.copy.title|safe}}"
@@ -28,7 +28,7 @@
         {% endfor %}
     </ul>
 </div>
-<script src="js/vendor/jquery.min.js"></script>
-<script src="js/slideshow.js?id={{guid}}"></script>
+<script src="{{localizedCdn()}}/js/vendor/jquery.min.js"></script>
+<script src="{{localizedCdn()}}/js/slideshow.js?id={{guid()}}"></script>
 </body>
 </html>
