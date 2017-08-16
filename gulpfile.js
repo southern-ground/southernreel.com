@@ -96,6 +96,13 @@ gulp.task('copy:images', function (done) {
         .pipe(gulp.dest(dirs.dist + "/img/"));
 });
 
+gulp.task('copy:icons', function (done) {
+    return gulp.src([dirs.src + "/*.png"], {
+        dot: false
+    })
+        .pipe(gulp.dest(dirs.dist + "/"));
+});
+
 gulp.task('copy:js', function (done) {
     return gulp.src([dirs.src + "/js/**/*.js"], {
         dot: false
@@ -139,7 +146,8 @@ gulp.task('copy', function (done) {
         'copy:fonts',
         'copy:cssFonts',
         'copy:docs',
-        'copy:video'
+        'copy:video',
+        'copy:icons'
     ], done);
 });
 
