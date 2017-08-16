@@ -93,7 +93,7 @@ var sr = window.sr = {
                 $('#southern-reel__hamburger')
                     .removeClass('headerHamburger light')
                     .addClass('headerClose dark');
-                s
+                sr.trackEvent('Hamburger Icon', 'click', 'Open');
             } else {
                 $('#headerMenu').slideUp(function(){
                     $('body').removeClass('no-scroll menu-open');
