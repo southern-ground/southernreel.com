@@ -12,7 +12,7 @@ var _ = require('underscore'),
     htmlMin = require('gulp-html-minifier'),
     print = require('gulp-print'),
     pump = require('pump'),
-    projects = require(config.projects),
+    siteData = require(config.siteData),
     render = require('gulp-nunjucks-render'),
     runSequence = require('run-sequence'),
     sass = require('gulp-sass'),
@@ -42,9 +42,9 @@ var manageEnvironment = function(environment) {
     });
     environment.addGlobal('localizedCdn', function(){
         if(env==="stage"){
-            return site.cdn.stage;
+            return siteData.site.cdn.stage;
         }else if(env === "prod"){
-            return site.cdn.prod;
+            return siteData.site.cdn.prod;
         }
         return ".";
     });
@@ -168,7 +168,7 @@ gulp.task('render', function () {
             return "\tRendering " + filepath;
         }))
         .pipe(data(function () {
-            return _.extend(config, {env: env}, projects);
+            return _.extend(config, {env: env}, siteData);
         }))
         .pipe(render({manageEnv: manageEnvironment}))
         .pipe(htmlMin({collapseWhitespace: true}))
