@@ -47,7 +47,7 @@
       "dist": "./dist",
       "src": "./src"
     },
-    "projects": "./src/data/sr-data.json",
+    "projects": "./src/data/site-data.json",
     "servers": {
       "dev": {
         "name": "dev",
