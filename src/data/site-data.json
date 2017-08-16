@@ -1,7 +1,20 @@
 {
-  "cdn": {
-    "prod": "http://southernreel.com.s3-website-us-east-1.amazonaws.com",
-    "stage": "http://stage.southernreel.com.s3-website-us-east-1.amazonaws.com"
+  "site": {
+    "title": "Southern Reel",
+    "canonicalUrl": "http://southernreel.com",
+    "description": "",
+    "author": "ferris",
+    "authorId": "https://plus.google.com/u/0/103429485426405859499/",
+    "cdn": {
+      "prod": "http://southernreel.com.s3-website-us-east-1.amazonaws.com",
+      "stage": "http://stage.southernreel.com.s3-website-us-east-1.amazonaws.com"
+    },
+    "iframeUrl": "iframe.html",
+    "tracking": {
+      "google": {
+        "googleUA": "UA-54746522-10"
+      }
+    }
   },
   "about": {
     "capabilities": [
@@ -31,7 +44,6 @@
       }
     ]
   },
-  "iframeUrl": "iframe.html",
   "photography": [
     {
       "image": "/img/photography/Bird-Nest-Edsa-EDIT-02.jpg"
@@ -151,7 +163,7 @@
     }
   ],
   "social": {
-    "socialMediaImage": "http://southernreel.com/img/social/southernreel-social-share.jpg",
+    "socialMediaImage": "/img/social/southernreel-social-share.jpg",
     "platformUrls": {
       "facebook": "https://www.facebook.com/SouthernReel/",
       "instagram": "https://www.instagram.com/southernreel/",
@@ -232,8 +244,5 @@
       "name": "Lauren Lee",
       "title": "Traffic Manager"
     }
-  ],
-  "tracking": {
-    "googleUA": "UA-54746522-10"
-  }
+  ]
 }
