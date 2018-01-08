@@ -104,7 +104,7 @@
       "trackingTitle": "Ford Lobo"
     },
     {
-      "title": "<p>Peugeot</p><p class='bold'>Beijing</p>",
+      "title": "<p>Peugeot</p><p class='bold'>Avenue Beijing</p>",
       "copy": {
         "title": "Peujot <span class='bold'>Avenue Beijing</span>",
         "subtitle": ""
@@ -122,26 +122,6 @@
       "video": "129474741",
       "image": "canary-islands.png",
       "trackingTitle": "Canary Islands - Tourism"
-    },
-    {
-      "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
-      "copy": {
-        "title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>",
-        "subtitle": "A Southern Reel Production"
-      },
-      "video": "207580033",
-      "image": "take-your-love-away-promo.jpg",
-      "trackingTitle": "Take Your Love Away Promo"
-    },
-    {
-      "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
-      "copy": {
-        "title": "Sir Rosevelt <span class='bold'>Take Your Love Away</span>",
-        "subtitle": "A Southern Reel Production"
-      },
-      "video": "207580033",
-      "image": "take-your-love-away-promo.jpg",
-      "trackingTitle": "Take Your Love Away Promo"
     },
     {
       "title": "<p>Sir Rosevelt</p><p class='bold'>Take Your Love Away</p>",
