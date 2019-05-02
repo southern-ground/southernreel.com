@@ -197,16 +197,12 @@
       "title": "Founder"
     },
     {
-      "name": "Jeff Willard",
-      "title": "CEO"
-    },
-    {
       "name": "Chad Gibson",
       "title": "CCO"
     },
     {
       "name": "Diego Pernia",
-      "title": "Director"
+      "title": "Film Director"
     },
     {
       "name": "Matt Tinsley",
@@ -225,16 +221,20 @@
       "title": "Producer"
     },
     {
-      "name": "Alyssa Goodman",
-      "title": "Integrated Marketing Manager"
+      "name": "Alisha Washington",
+      "title": "Senior Account Manager"
     },
     {
       "name": "Andy Sapp",
-      "title": "Photographer"
+      "title": "Tour Photographer"
     },
     {
       "name": "Jamie Sapp",
       "title": "Senior Editor & Director"
+    },
+    {
+      "name": "Victor Lopes",
+      "title": "Studio Photographer & DOP"
     },
     {
       "name": "Alex Chapman",
@@ -245,24 +245,12 @@
       "title": "Senior Designer"
     },
     {
-      "name": "John Knoerl",
-      "title": "Designer"
-    },
-    {
       "name": "Cat Buchanan",
       "title": "Junior Designer"
     },
     {
-      "name": "Ana De Orlano",
+      "name": "Ana Del Orlano",
       "title": "Junior Designer"
-    },
-    {
-      "name": "Cole Roberts",
-      "title": "Digital Marketing Specialist"
-    },
-    {
-      "name": "Victor Lopes",
-      "title": "Production Technician: Photo & Video"
     },
     {
       "name": "Ferris Thomas",
@@ -277,8 +265,16 @@
       "title": "Editor Assistant"
     },
     {
-      "name": "Rhonda Martin",
-      "title": "Traffic Manager"
+      "name": "Jenna Garcia",
+      "title": "Paid Media Strategist"
+    },
+    {
+      "name": "Colin",
+      "title": "Business Analyst & eComm Research"
+    },
+    {
+      "name": "Erica Sanders",
+      "title": "eComm Specialist"
     }
   ]
 }
